@@ -88,7 +88,7 @@ function MainMenu() {
             display: "flex",
             alignItems: "center",
             gap: 2,
-            ml: -35,
+            ml: -31,
             flexGrow: 1 / 2,
             justifyContent: "flex-end",
           }}
@@ -205,17 +205,17 @@ function MainMenu() {
         </Box>
         <Box sx={{ bgcolor: "#fff", width: "100%", display: 'flex', alignItems: 'flex-end', gap: 3, ml: 6 }}>
           <NavLink to="/get-vehicle">
-            <Button variant='contained' sx={{textTransform: 'capitalize', color: '#fff', bgcolor: '#ed1f1f', ":hover":{
+            <Button variant='contained' sx={{width: '15vw', textTransform: 'capitalize', color: '#fff', bgcolor: '#ed1f1f', ":hover":{
                 bgcolor:'#ed1f1f'
             }}}>get vehicle</Button>
           </NavLink>
           <NavLink to="/shop-parts">
-            <Button variant="outlined" sx={{textTransform: 'capitalize', color: '#bdbdbd', ":hover":{
+            <Button variant="outlined" sx={{width: '15vw', textTransform: 'capitalize', color: '#bdbdbd', ":hover":{
                 color: '#ed1f1f'
             }, border: '1px solid #bdbdbd' }}>Shop for parts</Button>
           </NavLink>
           <NavLink to="/after-sales">
-            <Button sx={{textTransform: 'capitalize', color: '#bdbdbd', ":hover":{
+            <Button sx={{width: '15vw', textTransform: 'capitalize', color: '#bdbdbd', ":hover":{
                 color: '#ed1f1f'
             }, border: '1px solid #bdbdbd'}}>After sales</Button>
           </NavLink>
