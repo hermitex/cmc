@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import MainMenu from './components/MainMenu/MainMenu'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './components/home/Home'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,6 +11,7 @@ function App() {
   return (
     <Router>
       <MainMenu/>
+      <Home/>
     </Router>
   )
 }
