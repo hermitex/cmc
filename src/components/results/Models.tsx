@@ -29,21 +29,18 @@ const cars = [
 
 function Models() {
   return (
-    <Box sx={{ display: "flex", pt: 3 , height: 'fit-content' }}>
+    <Box sx={{ display: "flex", height: 'fit-content', width: '100%'}}>
       {cars.map((car: Car) => (
         <NavLink  key={car.name} to="/"
-        style={({ isActive }) => ({
-          color: isActive ? '#000' : '#545e6f',
-          background: isActive ? '#fff' : '#f0f0f0',
-
-        })}
+        style={{ width: '100%'}}
         >
           <Box
             component="image"
             sx={{
+
               display: 'flex',
               flexDirection: 'column',
-
+              alignItems: 'center',
               py:1,
               px: 3,
               ":nth-of-type(odd)": {
@@ -57,6 +54,7 @@ function Models() {
             <img
               src={car.image}
               height={20}
+              width={60}
               alt={car.name}
             />
             <Typography variant='subtitle1' sx={{color: '#fff', textTransform: 'capitalize'}}>{car.name}</Typography>
