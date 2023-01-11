@@ -26,6 +26,7 @@ function CarGrid() {
             key={car.id}
             sx={{
               width: "15rem",
+            //   mx: 'auto',
               px: 4,
             }}
           >

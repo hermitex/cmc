@@ -86,6 +86,11 @@ function Models() {
                   ":nth-of-type(even)": {
                     bgcolor: "#2b2d42",
                   },
+                  color: '#fff',
+                  ":hover":{
+                    color: '#ed1f1f'
+                  },
+                  transition: '0.25s ease-in-out'
                 }}
               >
                 <img
@@ -96,7 +101,7 @@ function Models() {
                 />
                 <Typography
                   variant="subtitle1"
-                  sx={{ color: "#fff", textTransform: "capitalize" }}
+                  sx={{ textTransform: "capitalize" }}
                 >
                   {car.name}
                 </Typography>

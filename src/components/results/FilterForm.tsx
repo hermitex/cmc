@@ -27,6 +27,7 @@ import "./search.css";
 import useMediaQuery from "../hooks/useMediaQuery";
 
 import Slider from "@mui/material/Slider";
+import { cars } from "../data/carsData";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -56,6 +57,7 @@ function valuetext(value: number) {
 function FilterForm() {
   const [expanded, setExpanded] = React.useState<boolean | false>(false);
   const [showFilters, setShowFilters] = React.useState<boolean | false>(false);
+  const [isHovered, setIsHovered] = React.useState<boolean | false>(false);
   const isMedium = useMediaQuery("(min-width: 900px)");
 
   const handleMore = () => {
@@ -63,6 +65,10 @@ function FilterForm() {
   };
   const toggleFilters = () => {
     setShowFilters((showFilters) => !showFilters);
+  };
+
+  const toggleHover = () => {
+    setIsHovered((isHovered) => !isHovered);
   };
 
   const overRideDisplay = () => {
@@ -76,15 +82,50 @@ function FilterForm() {
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
   };
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   return (
-    <Box sx={{ bgcolor: "#f2f5fb", }}>
+    <Box sx={{ bgcolor: "#f2f5fb" }}>
       <Box sx={{ display: { xs: "block", bgcolor: "#2b2d42" } }}>
-        <Typography
+        <Button
           onClick={toggleFilters}
-          sx={{ width: "100%", bgcolor: "#2b2d42", py: 2, display: 'flex', textTransform: 'uppercase', alignItems: 'center', gap: 1, justifyContent: 'center' }}
+          onMouseEnter={toggleHover}
+          sx={{
+            width: "100%",
+            bgcolor: "#2b2d42",
+            color: "#fff",
+            ":hover": { bgcolor: "#ed1f1f" },
+            py: 1,
+            display: "flex",
+            textTransform: "uppercase",
+            alignItems: "center",
+            gap: 1,
+            justifyContent: "center",
+            borderRadius: 0,
+          }}
         >
-          Filters{" "}<Typography component='span'  sx={{color: '#ed1f1f'}}>car</Typography>
-        </Typography>
+          Filters
+          <Typography
+            component="span"
+            sx={{ color: isHovered ? "#ed1f1f" : "#fff" }}
+          >
+            car
+          </Typography>
+        </Button>
       </Box>
       {isMedium || showFilters ? (
         <>
@@ -144,8 +185,10 @@ function FilterForm() {
         </>
       ) : null}
 
-      <Box sx={{ width: "100%", mx: 'auto', bgcolor: "#2b2d42",   }}>
-        <Typography sx={{ color: "#fff", fontSize: '0.8rem' }}>PRICE RANGE</Typography>
+      <Box sx={{ width: "100%", mx: "auto", bgcolor: "#2b2d42" }}>
+        <Typography sx={{ color: "#fff", fontSize: "0.8rem" }}>
+          PRICE RANGE
+        </Typography>
         <Slider
           min={100000}
           max={10000000}
@@ -157,26 +200,171 @@ function FilterForm() {
           getAriaValueText={valuetext}
           sx={{
             color: "#ed1f1f",
-            width: '90%'
+            width: "90%",
           }}
         />
         <Box sx={{ display: "flex", justifyContent: "space-between", px: 0.5 }}>
           <Typography
             id="non-linear-slider"
             gutterBottom
-            sx={{fontSize: '0.7rem', color:'#ed1f1f'}}
+            sx={{ fontSize: "0.7rem", color: "#ed1f1f" }}
           >
             Min: {value[0]}
           </Typography>
           <Typography
             id="non-linear-slider"
             gutterBottom
-            sx={{fontSize: '0.7rem', color:'#ed1f1f'}}
+            sx={{ fontSize: "0.7rem", color: "#ed1f1f" }}
           >
             Max: {value[1]}
           </Typography>
         </Box>
       </Box>
+
+      <NavLink to="/description">
+        <Box sx={{ bgcolor: "#2a2c42", width: "100%", mt: 2 }}>
+          <Typography sx={{ textTransform: "uppercase", color: "#fff" }}>
+            {months[new Date().getMonth()]} sale
+          </Typography>
+          <Box sx={{ width: "100%" }}>
+            <img
+              width="100%"
+              src={cars[3].images[7]}
+              alt=""
+            />
+          </Box>
+          <Box sx={{ mt: -3, mb: 1 }}>
+            <Button
+              variant="contained"
+              disableElevation
+              sx={{
+                bgcolor: "#ed1f1f",
+                ":hover": {
+                  bgcolor: "#ed1f1f",
+                },
+                borderRadius: 0,
+                width: "90%",
+              }}
+            >
+              Ksh {cars[3].price}
+            </Button>
+          </Box>
+          <Box sx={{ px: 2 }}>
+            <Typography
+              sx={{
+                textTransform: "uppercase",
+                color: "#fff",
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                fontSize: "0.6rem",
+                fontWeight: 600,
+              }}
+            >
+              Engine type:{" "}
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  textTransform: "capitalize",
+                  fontSize: "0.6rem",
+                  color: "#c1c1c1",
+                }}
+              >
+                Four Cylinder
+              </Typography>
+            </Typography>
+
+            <Typography
+              sx={{
+                textTransform: "uppercase",
+                color: "#fff",
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                fontSize: "0.6rem",
+                fontWeight: 600,
+              }}
+            >
+              Transmission:{" "}
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  textTransform: "capitalize",
+                  fontSize: "0.6rem",
+                  color: "#c1c1c1",
+                }}
+              >
+                {cars[3].transmission}
+              </Typography>
+            </Typography>
+
+            <Typography
+              sx={{
+                textTransform: "uppercase",
+                color: "#fff",
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                fontSize: "0.6rem",
+                fontWeight: 600,
+              }}
+            >
+              Fuel type:{" "}
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  textTransform: "capitalize",
+                  fontSize: "0.6rem",
+                  color: "#c1c1c1",
+                }}
+              >
+                {cars[3].fuelType}
+              </Typography>
+            </Typography>
+
+            <Typography
+              sx={{
+                textTransform: "uppercase",
+                color: "#fff",
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                fontSize: "0.6rem",
+                fontWeight: 600,
+              }}
+            >
+              vehicle ID:{" "}
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  textTransform: "capitalize",
+                  fontSize: "0.6rem",
+                  color: "#c1c1c1",
+                }}
+              >
+                Qx8qx8imZ
+              </Typography>
+            </Typography>
+          </Box>
+          <NavLink to="/quote">
+            <Button
+              variant="contained"
+              disableElevation
+              sx={{
+                my: 2,
+                bgcolor: "#ed1f1f",
+                ":hover": {
+                  bgcolor: "#ed1f1f",
+                },
+                borderRadius: 0,
+                width: "90%",
+              }}
+            >
+              GET QUOTE
+            </Button>
+          </NavLink>
+        </Box>
+      </NavLink>
     </Box>
   );
 }
