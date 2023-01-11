@@ -3,14 +3,30 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
+const ITEM_HEIGHT = 48
+const ITEM_PADDING_TOP = 8
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 'auto',
+    },
+  },
+}
+
 export default function CountrySelect() {
   return (
     <Autocomplete
-      id="country-select-demo"
-      sx={{ width: 200 }}
+      id="country-select"
+      sx={{ width: 200,
+        "& .MuiInputBase-root": {
+            height: 40
+        }
+      }}
       options={countries}
       autoHighlight
       getOptionLabel={(option) => option.label}
+
       renderOption={(props, option) => (
         <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
           <img
@@ -26,7 +42,10 @@ export default function CountrySelect() {
       renderInput={(params) => (
         <TextField
         variant='filled'
-        sx={{bgcolor: '#fff',}}
+        sx={{bgcolor: '#fff',  "& .MuiInputBase-root": {
+            height: 45,
+            // mb: 0.5
+        }}}
           {...params}
           label="Select country"
           inputProps={{

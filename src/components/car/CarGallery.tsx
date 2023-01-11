@@ -1,4 +1,4 @@
-import { ChevronLeftOutlined, ChevronRightOutlined } from "@mui/icons-material";
+import { ArrowBackOutlined, ArrowRight, ArrowRightAltOutlined, ArrowRightOutlined, ChevronLeftOutlined, ChevronRightOutlined } from "@mui/icons-material";
 import { Button, IconButton, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { CSSProperties, ReactChild } from "react";
@@ -33,17 +33,17 @@ function CarGallery({ car }: { car: any }) {
     hasPrev && (
       <IconButton
         onClick={clickHandler}
-        style={{ ...arrowStyles, left: 15 }}
+        style={{ ...arrowStyles, left: 15, border: '2px solid #fff' }}
         sx={{
-          color: "#ff4605",
+          color: "#fff",
           ":hover": {
             bgcolor: "#fff",
             color: "#ff4605",
           },
-          p: 3,
+          p: 1,
         }}
       >
-        <ChevronLeftOutlined />
+        <ArrowBackOutlined />
       </IconButton>
     );
   const renderArrowNext = (
@@ -54,17 +54,17 @@ function CarGallery({ car }: { car: any }) {
     hasNext && (
       <IconButton
         onClick={clickHandler}
-        style={{ ...arrowStyles, right: 15 }}
+        style={{ ...arrowStyles, right: 15, border: '2px solid #fff' }}
         sx={{
-          color: "#ff4605",
+          color: "#fff",
           ":hover": {
             bgcolor: "#fff",
             color: "#ff4605",
           },
-          p: 3,
+          p: 1,
         }}
       >
-        <ChevronRightOutlined />
+        <ArrowBackOutlined sx={{transform: 'rotate(180deg)'}} />
       </IconButton>
     );
 
@@ -126,7 +126,8 @@ function CarGallery({ car }: { car: any }) {
               src={image}
               style={{ borderRadius: 5 }}
             />
-            <Box   sx={{position: 'absolute', display: 'flex', gap: 2, flexDirection:'column', bottom: '15rem', left: '5rem', width: '30vw'}}>
+            <>
+            <Box   sx={{position: 'absolute', display: 'flex', gap: 2, flexDirection:'column', bottom: '10rem', left: '5rem', width: '30vw', alignItems: 'flex-start', textAlign: 'left',}}>
               <Typography>FIND YOUR MATCH</Typography>
               <Box>
               <Button
@@ -162,6 +163,7 @@ function CarGallery({ car }: { car: any }) {
               >GET QUOTE</Button>
               </Box>
             </Box>
+            </>
           </Box>
         ))}
       </Carousel>
