@@ -80,16 +80,6 @@ export const searchInputData = [
     isMultiple: false,
   },
 
-
-  {
-    name: 'price',
-    label: 'price from',
-    type: '',
-    minmax: ['minPrice', 'maxPrice'],
-  },
-
-
-
   {
     name: 'color',
     label: 'color',
@@ -130,6 +120,14 @@ export const searchInputData = [
         maxYear: 0,
       },
     ],
+  },
+
+
+  {
+    name: 'price',
+    label: 'price from',
+    type: '',
+    minmax: ['minPrice', 'maxPrice'],
   },
 
 ]
