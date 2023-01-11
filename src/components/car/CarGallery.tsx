@@ -127,7 +127,7 @@ function CarGallery({ car }: { car: any }) {
               style={{ borderRadius: 5 }}
             />
             <>
-            <Box   sx={{position: 'absolute', display: 'flex', gap: 2, flexDirection:'column', bottom: '10rem', left: '5rem', width: '30vw', alignItems: 'flex-start', textAlign: 'left',}}>
+            <Box   sx={{position: 'absolute', display: 'flex', gap: 2, flexDirection:'column', bottom: '30%', height: 'calc(40% - 15px)', left: '5rem', width: '30vw', alignItems: 'flex-start', textAlign: 'left',}}>
               <Typography>FIND YOUR MATCH</Typography>
               <Box>
               <Button
