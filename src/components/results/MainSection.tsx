@@ -1,11 +1,10 @@
 import { Box, Pagination } from "@mui/material";
 import React from "react";
 import CarGrid from "./CarGrid";
+import CarsListView from "./CarsListView";
 import FilterForm from "./FilterForm";
 
-
-function MainSection() {
-
+function MainSection({ isGridView }: { isGridView: Boolean }) {
   return (
     <Box
       sx={{
@@ -17,15 +16,22 @@ function MainSection() {
     >
       <Box
         className="left"
-        sx={{ flexGrow: 1 / 2, bgcolor: "red", height: "100%" }}
+        sx={{ flexGrow: 1 / 2, height: "100%", position: "sticky" }}
       >
         <FilterForm />
       </Box>
-      <Box
-        className="right"
-        sx={{ flexGrow: 1 }}
-      >
-        <CarGrid />
+      <Box className="right" sx={{ flexGrow: 1 }}>
+        <Box>
+          {isGridView ? (
+            <CarGrid isGridView={isGridView} />
+          ) : (
+            <CarsListView isGridView={isGridView} />
+          )}
+        </Box>
+        {/* <Box sx={{ display: { lg: isGridView ? 'none' : 'flex' } }}>
+        <CarGrid isGridView={isGridView} />
+      </Box> */}
+
         <Box sx={{ my: 2 }}>
           <Pagination
             count={5}

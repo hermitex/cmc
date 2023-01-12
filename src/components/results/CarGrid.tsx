@@ -3,9 +3,9 @@ import { Box, Button, IconButton, Typography } from "@mui/material";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { cars } from "../data/carsData";
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
 
-function CarGrid() {
+function CarGrid({ isGridView }: { isGridView: Boolean }) {
   return (
     <Box
       sx={{
@@ -19,11 +19,7 @@ function CarGrid() {
       }}
     >
       {cars.map((car, i) => (
-        <NavLink
-          key={car.id}
-          to="description"
-          state={car}
-        >
+        <NavLink key={car.id} to="description" state={car}>
           <motion.div
             whileHover={{ scale: 1.05 }}
             initial={{ opacity: 0, scale: 0.5 }}
@@ -46,7 +42,7 @@ function CarGrid() {
               sx={{
                 width: { xs: "100vw", md: "15rem" },
                 //   mx: 'auto',
-                px: 4,
+                px: 3,
                 py: 1,
                 ":hover": {
                   boxShadow: 2,
@@ -54,13 +50,8 @@ function CarGrid() {
                 transition: "0.7s ease-in-out",
               }}
             >
-
               <Box>
-                <img
-                  width="100%"
-                  src={car.images[i]}
-                  alt=""
-                />
+                <img width="100%" src={car.images[i]} alt="" />
               </Box>
               <Box
                 sx={{
@@ -92,10 +83,7 @@ function CarGrid() {
                   </Box>
                   <Typography variant="subtitle1">
                     Starting from{" "}
-                    <Typography
-                      component="span"
-                      sx={{ color: "#ed1f1f" }}
-                    >
+                    <Typography component="span" sx={{ color: "#ed1f1f" }}>
                       Ksh {car.price}
                     </Typography>
                   </Typography>
@@ -195,10 +183,7 @@ function CarGrid() {
                   </Typography>
                 </Box>
                 <Box>
-                  <NavLink
-                    to="/description"
-                    state={car}
-                  >
+                  <NavLink to="/description" state={car}>
                     <Button
                       disableElevation={true}
                       sx={{

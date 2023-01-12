@@ -2,6 +2,7 @@ import { Container } from "@mui/material";
 import React from "react";
 import MainSection from "./MainSection";
 import Models from "./Models";
+import ResultsHeader from "./ResultsHeader";
 
 function Results() {
   return (
@@ -11,12 +12,13 @@ function Results() {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        alignItems: 'center',
-        gap: 3
+        alignItems: "center",
+        gap: 3,
       }}
     >
       <Models />
-      <MainSection />
+      <ResultsHeader />
+      {/* <MainSection isGridView={true} /> */}
     </Container>
   );
 }

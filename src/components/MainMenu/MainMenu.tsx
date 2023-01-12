@@ -25,7 +25,7 @@ function MainMenu() {
               bgcolor: "#fff",
               clipPath: "polygon(0 0, 100% 0, 96% 100%, 0% 100%)",
               mr: -5,
-            //   py: 0.5,
+              //   py: 0.5,
               px: 4,
             }}
           />
@@ -34,7 +34,7 @@ function MainMenu() {
               height: "2rem",
               bgcolor: "#282a3e",
               clipPath: "polygon(4% 0, 100% 0, 95% 100%, 0 100%)",
-            //   py: 1.5,
+              //   py: 1.5,
               px: 4,
               pr: 8,
               display: "flex",
@@ -84,7 +84,7 @@ function MainMenu() {
               height: "2rem",
               bgcolor: "#e11d1d",
               clipPath: "polygon(10% 0, 100% 0, 100% 100%, 0 100%)",
-            //   py: 0.5,
+              //   py: 0.5,
               px: 4,
               display: "flex",
               alignItems: "center",
@@ -197,10 +197,7 @@ function MainMenu() {
               }}
             />
             <NavLink to="/">
-              <img
-                src={cmc}
-                width={35}
-              />
+              <img src={cmc} width={35} />
             </NavLink>
             <CountrySelect />
           </Box>
@@ -269,5 +266,3 @@ function MainMenu() {
 }
 
 export default MainMenu;
-
-

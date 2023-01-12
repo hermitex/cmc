@@ -66,11 +66,7 @@ function Models() {
         style={{ display: "flex", width: "100%" }}
       >
         {cars.map((car: Car) => (
-          <NavLink
-            key={car.name}
-            to="/"
-            style={{ width: "100%" }}
-          >
+          <NavLink key={car.name} to="/" style={{ width: "100%" }}>
             <motion.div>
               <Box
                 component="image"
@@ -86,19 +82,14 @@ function Models() {
                   ":nth-of-type(even)": {
                     bgcolor: "#2b2d42",
                   },
-                  color: '#fff',
-                  ":hover":{
-                    color: '#ed1f1f'
+                  color: "#fff",
+                  ":hover": {
+                    color: "#ed1f1f",
                   },
-                  transition: '0.25s ease-in-out'
+                  transition: "0.25s ease-in-out",
                 }}
               >
-                <img
-                  src={car.image}
-                  height={20}
-                  width={60}
-                  alt={car.name}
-                />
+                <img src={car.image} height={20} width={60} alt={car.name} />
                 <Typography
                   variant="subtitle1"
                   sx={{ textTransform: "capitalize" }}

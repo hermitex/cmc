@@ -29,17 +29,6 @@ import useMediaQuery from "../hooks/useMediaQuery";
 import Slider from "@mui/material/Slider";
 import { cars } from "../data/carsData";
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
-
 const categories = [
   { category: "all", count: 20 },
   { category: "new", count: 17 },
@@ -99,7 +88,7 @@ function FilterForm() {
   ];
 
   return (
-    <Box sx={{ bgcolor: "#f2f5fb",   width: {xs: "100vw", md:"12rem"}, }}>
+    <Box sx={{ bgcolor: "#f2f5fb", width: { xs: "100vw", md: "12rem" } }}>
       <Box sx={{ display: { xs: "block", bgcolor: "#2b2d42" } }}>
         <Button
           onClick={toggleFilters}
@@ -151,10 +140,7 @@ function FilterForm() {
               .filter((input) => input.name.toLocaleLowerCase() != "price")
               .map((input) => {
                 return input.type.toLocaleLowerCase() === "select" ? (
-                  <MultipleSelect
-                    key={input.name}
-                    input={input}
-                  />
+                  <MultipleSelect key={input.name} input={input} />
                 ) : (
                   <FormControl
                     sx={{ m: 1, height: "3rem" }}
@@ -227,11 +213,7 @@ function FilterForm() {
             {months[new Date().getMonth()]} sale
           </Typography>
           <Box sx={{ width: "100%" }}>
-            <img
-              width="100%"
-              src={cars[3].images[7]}
-              alt=""
-            />
+            <img width="100%" src={cars[3].images[7]} alt="" />
           </Box>
           <Box sx={{ mt: -3, mb: 1 }}>
             <Button
