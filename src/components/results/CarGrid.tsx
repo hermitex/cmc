@@ -19,10 +19,15 @@ function CarGrid({ isGridView }: { isGridView: Boolean }) {
       }}
     >
       {cars.map((car, i) => (
-        <NavLink key={car.id} to="description" state={car}>
+        <NavLink
+          key={car.id}
+          to="description"
+          state={car}
+          style={{ width: "100%" }}
+        >
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            initial={{ opacity: 0, scale: 0.5 }}
+            whileHover={{ scale: 1.02 }}
+            initial={{ opacity: 0, scale: 0.2 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
               default: {
@@ -40,10 +45,10 @@ function CarGrid({ isGridView }: { isGridView: Boolean }) {
             <Box
               key={car.id}
               sx={{
-                width: { xs: "100vw", md: "15rem" },
-                //   mx: 'auto',
-                px: 3,
-                py: 1,
+                width: { xs: "100vw", md: "95%" },
+                mx: "auto",
+                p: 0.5,
+                // py: 1,
                 ":hover": {
                   boxShadow: 2,
                   border: "1px solid #ff4605",

@@ -11,7 +11,7 @@ function MainSection({ isGridView }: { isGridView: Boolean }) {
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
         width: "100%",
-        gap: 3,
+        gap: isGridView ? 3 : 0,
       }}
     >
       <Box

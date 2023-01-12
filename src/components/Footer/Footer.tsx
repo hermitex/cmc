@@ -1,7 +1,8 @@
-import { Send } from "@mui/icons-material";
+import { Facebook, Google, Send, Twitter } from "@mui/icons-material";
 import {
   Box,
   Button,
+  Divider,
   FormControl,
   FormHelperText,
   IconButton,
@@ -68,18 +69,12 @@ function Footer() {
           </Typography>
 
           <NavLink to="/about">
-            <Button
-              disableElevation
-              sx={{ color: "#fff" }}
-            >
+            <Button disableElevation sx={{ color: "#fff" }}>
               read more
             </Button>
           </NavLink>
           <Box component="form">
-            <FormControl
-              sx={{ width: "27ch" }}
-              variant="outlined"
-            >
+            <FormControl sx={{ width: "27ch" }} variant="outlined">
               {/* <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel> */}
               <OutlinedInput
                 id="outlined-adornment-email"
@@ -141,7 +136,10 @@ function Footer() {
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
+              gridTemplateColumns: {
+                xs: "repeat(1, 1fr)",
+                md: "repeat(2, 1fr)",
+              },
               gap: 3,
             }}
           >
@@ -268,15 +266,9 @@ function Footer() {
 
           <Box sx={{ height: "10vh" }}>
             {cars.slice(0, 3).map((car, i) => (
-              <NavLink
-                key={car.id}
-                to="/posts"
-              >
+              <NavLink key={car.id} to="/posts">
                 <Box sx={{ display: "flex", gap: 2 }}>
-                  <Box
-                    component="image"
-                    sx={{ width: 50, mb: 3 }}
-                  >
+                  <Box component="image" sx={{ width: 50, mb: 3 }}>
                     <img
                       height="100%"
                       width="100%"
@@ -299,6 +291,41 @@ function Footer() {
               </NavLink>
             ))}
           </Box>
+        </Box>
+      </Box>
+
+      <Box>
+        <Divider sx={{ height: "1px", my: 3, bgcolor: "#5d5f65" }} />
+        <Box>
+          <Typography>
+            Copyright ©Sepia. All Rights Reserved.{" "}
+            <NavLink to="privacy-policy" style={{}}>
+              Privacy Policy
+            </NavLink>
+          </Typography>
+        </Box>
+        <Divider
+          orientation="vertical"
+          sx={{ width: "1px", bgcolor: "#5d5f65" }}
+        />
+        <Box sx={{ display: "flex" }}>
+          <Link href="htpps://facebook.com">
+            <IconButton>
+              <Facebook />
+            </IconButton>
+          </Link>
+
+          <Link href="https://twitter.com">
+            <IconButton>
+              <Twitter />
+            </IconButton>
+          </Link>
+
+          <Link href="https://google.com">
+            <IconButton>
+              <Google />
+            </IconButton>
+          </Link>
         </Box>
       </Box>
     </Box>

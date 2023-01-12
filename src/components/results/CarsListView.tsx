@@ -34,16 +34,16 @@ function CarsListView({ isGridView }: { isGridView: Boolean }) {
         justifyContent: "space-between",
         flexDirection: "column",
         alignItems: "center",
+        width: "100%",
       }}
     >
       {cars.map((car) => (
-        <Link key={car.id} to="/details" state={car}>
+        <Link key={car.id} to="/details" state={car} style={{ width: "100%" }}>
           <Card
             sx={{
               display: "flex",
               height: "11rem",
-              width: "100%",
-              my: 1,
+              mb: 1,
               p: 2,
               gap: 2,
               borderRadius: 1.5,
