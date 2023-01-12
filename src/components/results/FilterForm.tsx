@@ -99,7 +99,7 @@ function FilterForm() {
   ];
 
   return (
-    <Box sx={{ bgcolor: "#f2f5fb" }}>
+    <Box sx={{ bgcolor: "#f2f5fb",   width: {xs: "100vw", md:"12rem"}, }}>
       <Box sx={{ display: { xs: "block", bgcolor: "#2b2d42" } }}>
         <Button
           onClick={toggleFilters}
