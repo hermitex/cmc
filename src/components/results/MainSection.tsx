@@ -16,7 +16,7 @@ function MainSection({ isGridView }: { isGridView: Boolean }) {
     >
       <Box
         className="left"
-        sx={{ flexGrow: 1 / 2, height: "100%", position: "sticky" }}
+        sx={{ flexGrow: 1 / 2, height: "100%", position: "sticky", top: '-17.5rem' }}
       >
         <FilterForm />
       </Box>
