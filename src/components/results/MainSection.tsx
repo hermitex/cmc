@@ -35,7 +35,7 @@ function MainSection({ isGridView }: { isGridView: Boolean }) {
             <CarsListView isGridView={isGridView} />
           )}
         </Box>
-        <Box sx={{ display: { lg: !isGridView ? "flex" : "none" } }}>
+        <Box sx={{ display: { lg: isGridView ? "none" : "flex"  } }}>
           <CarGrid isGridView={isGridView} />
         </Box>
 
