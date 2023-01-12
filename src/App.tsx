@@ -5,6 +5,7 @@ import MainMenu from "./components/MainMenu/MainMenu";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/home/Home";
 import Results from "./components/results/Results";
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,6 +15,7 @@ function App() {
       <MainMenu />
       <Home />
       <Results />
+      <Footer/>
     </Router>
   );
 }
