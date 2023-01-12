@@ -36,7 +36,7 @@ function CarGrid() {
               scale: {
                 // type: "spring",
                 damping: 10,
-                stiffness: 100,
+                stiffness: 90,
                 restDelta: 0.001,
               },
             }}
