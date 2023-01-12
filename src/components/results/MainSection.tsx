@@ -27,10 +27,7 @@ function MainSection({ isGridView }: { isGridView: Boolean }) {
       >
         <FilterForm />
       </Box>
-      <Box
-        className="right"
-        sx={{ flexGrow: 1 }}
-      >
+      <Box className="right" sx={{ flexGrow: 1 }}>
         <Box>
           {isGridView ? (
             <CarGrid isGridView={isGridView} />
@@ -38,7 +35,7 @@ function MainSection({ isGridView }: { isGridView: Boolean }) {
             <CarsListView isGridView={isGridView} />
           )}
         </Box>
-        <Box sx={{ display: { lg: !isGridView ? 'flex' : 'none' } }}>
+        <Box sx={{ display: { lg: !isGridView ? "flex" : "none" } }}>
           <CarGrid isGridView={isGridView} />
         </Box>
 

@@ -140,10 +140,7 @@ function FilterForm() {
               .filter((input) => input.name.toLocaleLowerCase() != "price")
               .map((input) => {
                 return input.type.toLocaleLowerCase() === "select" ? (
-                  <MultipleSelect
-                    key={input.name}
-                    input={input}
-                  />
+                  <MultipleSelect key={input.name} input={input} />
                 ) : (
                   <FormControl
                     sx={{ m: 1, height: "3rem" }}
@@ -223,11 +220,7 @@ function FilterForm() {
               {months[new Date().getMonth()]} sale
             </Typography>
             <Box sx={{ width: "100%" }}>
-              <img
-                width="100%"
-                src={cars[3].images[7]}
-                alt=""
-              />
+              <img width="100%" src={cars[3].images[7]} alt="" />
             </Box>
             <Box sx={{ mt: -3, mb: 1 }}>
               <Button

@@ -63,8 +63,6 @@ function ResultsHeader() {
   const [isGridView, setGridView] = React.useState(true);
   const [listView, setListView] = React.useState(false);
 
-
-
   const handleGridView = () => {
     setGridView(true);
     setListView(false);
@@ -94,7 +92,7 @@ function ResultsHeader() {
     );
   };
   return (
-    <Box sx={{ bgcolor: "#ffffff",  width: "100%", }}>
+    <Box sx={{ bgcolor: "#ffffff", width: "100%" }}>
       <Box
         sx={{
           display: "flex",
@@ -130,15 +128,15 @@ function ResultsHeader() {
               alignItems: "center",
               width: { xs: "90vw", md: "100%" },
               gap: 3,
-              color: '#fff'
+              color: "#fff",
             }}
           >
             <FormControl
-              sx={{ width: { xs: "90vw", md: "20vw" }, height: "3rem",  }}
+              sx={{ width: { xs: "90vw", md: "20vw" }, height: "3rem" }}
             >
               <InputLabel
                 id="sort by"
-                sx={{ textTransform: "capitalize",   color: '#fff' }}
+                sx={{ textTransform: "capitalize", color: "#fff" }}
               >
                 sort by
               </InputLabel>
@@ -170,17 +168,17 @@ function ResultsHeader() {
                     }}
                   >
                     <Checkbox checked={sortOption.indexOf(option) > -1} />
-                    <ListItemText  primary={option} />
+                    <ListItemText primary={option} />
                   </MenuItem>
                 ))}
               </Select>
             </FormControl>
             <FormControl
-              sx={{ width: { xs: "90vw", md: "20vw" }, height: "3rem", }}
+              sx={{ width: { xs: "90vw", md: "20vw" }, height: "3rem" }}
             >
               <InputLabel
                 id="view"
-                sx={{ textTransform: "capitalize",   color: '#fff' }}
+                sx={{ textTransform: "capitalize", color: "#fff" }}
               >
                 view
               </InputLabel>

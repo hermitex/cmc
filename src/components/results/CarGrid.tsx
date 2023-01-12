@@ -9,7 +9,7 @@ function CarGrid({ isGridView }: { isGridView: Boolean }) {
   return (
     <Box
       sx={{
-        display: { xs: 'grid', lg: isGridView ? 'grid' : 'none' },
+        display: { xs: "grid", lg: isGridView ? "grid" : "none" },
         gridTemplateColumns: {
           xs: "repeat(1, 1fr)",
           sm: "repeat(2, 1fr)",
