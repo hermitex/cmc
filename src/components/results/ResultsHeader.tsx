@@ -1,5 +1,7 @@
 import {
+  AppsOutlined,
   CompareArrows,
+  FormatListBulletedOutlined,
   GridViewRounded,
   TableRows,
   ViewColumn,
@@ -37,7 +39,7 @@ const MenuProps = {
   },
 };
 
-const options = [
+const sortOptions = [
   "most relevant",
   "date listed: newest",
   "price: lowest",
@@ -46,10 +48,22 @@ const options = [
   "mileage: highest",
 ];
 
+const viewOptions = [
+  "all",
+  "10 per page",
+  "15 per page",
+  "20 per page",
+  "25 per page",
+  "30 per page",
+];
+
 function ResultsHeader() {
   const [sortOption, setsortOption] = React.useState<string[]>([]);
+  const [viewOption, setViewOption] = React.useState<string[]>([]);
   const [isGridView, setGridView] = React.useState(true);
   const [listView, setListView] = React.useState(false);
+
+
 
   const handleGridView = () => {
     setGridView(true);
@@ -61,7 +75,7 @@ function ResultsHeader() {
     setListView(true);
   };
 
-  const handleChange = (event: SelectChangeEvent<typeof sortOption>) => {
+  const handleSortChange = (event: SelectChangeEvent<typeof sortOption>) => {
     const {
       target: { value },
     } = event;
@@ -70,8 +84,17 @@ function ResultsHeader() {
       typeof value === "string" ? value.split(",") : value
     );
   };
+  const handleViewChange = (event: SelectChangeEvent<typeof sortOption>) => {
+    const {
+      target: { value },
+    } = event;
+    setViewOption(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value
+    );
+  };
   return (
-    <Container sx={{ bgcolor: "#ffffff" }}>
+    <Box sx={{ bgcolor: "#ffffff",  width: "100%", }}>
       <Box
         sx={{
           display: "flex",
@@ -79,15 +102,17 @@ function ResultsHeader() {
           justifyItems: "center",
           alignContent: "center",
           alignItems: "center",
+          bgcolor: "#1f2139",
           flexDirection: {
             xs: "column",
             md: "row",
           },
-          width: "100%",
+          // width: "100%",
           px: 3,
-          mt: 3,
-          pb: 3,
+          my: 3,
+          py: 1,
           height: { xs: "30vh", md: "auto" },
+          color: "#fff",
         }}
       >
         <Box
@@ -104,18 +129,93 @@ function ResultsHeader() {
               justifyContent: "space-between",
               alignItems: "center",
               width: { xs: "90vw", md: "100%" },
+              gap: 3,
+              color: '#fff'
             }}
           >
-            <Typography
-              sx={{
-                textTransform: "capitalize",
-                fontSize: "2rem",
-                fontWeight: 900,
-                color: "#354049",
-              }}
+            <FormControl
+              sx={{ width: { xs: "90vw", md: "20vw" }, height: "3rem",  }}
             >
-              100 Results
-            </Typography>
+              <InputLabel
+                id="sort by"
+                sx={{ textTransform: "capitalize",   color: '#fff' }}
+              >
+                sort by
+              </InputLabel>
+              <Select
+                labelId="sort by"
+                id="sort by"
+                value={sortOption}
+                onChange={handleSortChange}
+                input={<OutlinedInput label="sort by" />}
+                renderValue={(selected) => selected.join(", ")}
+                MenuProps={MenuProps}
+                sx={{
+                  height: "3rem",
+                  textTransform: "capitalize",
+                  boxShadow: 1,
+                }}
+              >
+                {sortOptions.map((option: any) => (
+                  <MenuItem
+                    key={option}
+                    value={option}
+                    sx={{
+                      textTransform: "capitalize",
+
+                      ":hover": {
+                        color: "#ff4605",
+                        fontWeight: 900,
+                      },
+                    }}
+                  >
+                    <Checkbox checked={sortOption.indexOf(option) > -1} />
+                    <ListItemText  primary={option} />
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <FormControl
+              sx={{ width: { xs: "90vw", md: "20vw" }, height: "3rem", }}
+            >
+              <InputLabel
+                id="view"
+                sx={{ textTransform: "capitalize",   color: '#fff' }}
+              >
+                view
+              </InputLabel>
+              <Select
+                labelId="view"
+                id="view"
+                value={viewOption}
+                onChange={handleViewChange}
+                input={<OutlinedInput label="view" />}
+                renderValue={(selected) => selected.join(", ")}
+                MenuProps={MenuProps}
+                sx={{
+                  height: "3rem",
+                  textTransform: "capitalize",
+                  boxShadow: 1,
+                }}
+              >
+                {viewOptions.map((option: any) => (
+                  <MenuItem
+                    key={option}
+                    value={option}
+                    sx={{
+                      textTransform: "capitalize",
+                      ":hover": {
+                        color: "#ff4605",
+                        fontWeight: 900,
+                      },
+                    }}
+                  >
+                    <Checkbox checked={viewOption.indexOf(option) > -1} />
+                    <ListItemText primary={option} />
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
           </Box>
         </Box>
         <Box
@@ -138,13 +238,13 @@ function ResultsHeader() {
                   fontSize: "1.2rem",
                   fontWeight: 300,
                   px: 3,
-                  color: isGridView ? "#ff5d46" : "#354049",
+                  color: isGridView ? "#ED1F1F" : "#FFF",
                   ":hover": {
-                    color: "#ff5d46",
+                    color: "#ED1F1F",
                   },
                 }}
               >
-                <GridViewRounded />
+                <AppsOutlined />
               </Button>
             </Tooltip>
 
@@ -156,55 +256,20 @@ function ResultsHeader() {
                   fontSize: "1.2rem",
                   fontWeight: 300,
                   px: 3,
-                  color: !isGridView ? "#ff5d46" : "#354049",
+                  color: !isGridView ? "#ED1F1F" : "#FFF",
                   ":hover": {
-                    color: "#ff5d46",
+                    color: "#ED1F1F",
                   },
                 }}
               >
-                <ViewListRounded />
+                <FormatListBulletedOutlined />
               </Button>
             </Tooltip>
           </Box>
-
-          <FormControl
-            sx={{ width: { xs: "90vw", md: "20vw" }, height: "3rem" }}
-          >
-            <InputLabel id="sort by" sx={{ textTransform: "capitalize" }}>
-              sort by
-            </InputLabel>
-            <Select
-              labelId="sort by"
-              id="sort by"
-              value={sortOption}
-              onChange={handleChange}
-              input={<OutlinedInput label="sort by" />}
-              renderValue={(selected) => selected.join(", ")}
-              MenuProps={MenuProps}
-              sx={{ height: "3rem", textTransform: "capitalize", boxShadow: 1 }}
-            >
-              {options.map((option: any) => (
-                <MenuItem
-                  key={option}
-                  value={option}
-                  sx={{
-                    textTransform: "capitalize",
-                    ":hover": {
-                      color: "#ff4605",
-                      fontWeight: 900,
-                    },
-                  }}
-                >
-                  <Checkbox checked={sortOption.indexOf(option) > -1} />
-                  <ListItemText primary={option} />
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
         </Box>
       </Box>
       <MainSection isGridView={isGridView} />
-    </Container>
+    </Box>
   );
 }
 
