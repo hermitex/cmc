@@ -140,7 +140,10 @@ function FilterForm() {
               .filter((input) => input.name.toLocaleLowerCase() != "price")
               .map((input) => {
                 return input.type.toLocaleLowerCase() === "select" ? (
-                  <MultipleSelect key={input.name} input={input} />
+                  <MultipleSelect
+                    key={input.name}
+                    input={input}
+                  />
                 ) : (
                   <FormControl
                     sx={{ m: 1, height: "3rem" }}
@@ -206,147 +209,159 @@ function FilterForm() {
           </Typography>
         </Box>
       </Box>
-
-      <NavLink to="/description">
-        <Box sx={{ bgcolor: "#2a2c42", width: "100%", mt: 2 }}>
-          <Typography sx={{ textTransform: "uppercase", color: "#fff" }}>
-            {months[new Date().getMonth()]} sale
-          </Typography>
-          <Box sx={{ width: "100%" }}>
-            <img width="100%" src={cars[3].images[7]} alt="" />
-          </Box>
-          <Box sx={{ mt: -3, mb: 1 }}>
-            <Button
-              variant="contained"
-              disableElevation
-              sx={{
-                bgcolor: "#ed1f1f",
-                ":hover": {
+      <Box
+        sx={{
+          display: {
+            xs: "none",
+            md: "block",
+          },
+        }}
+      >
+        <NavLink to="/description">
+          <Box sx={{ bgcolor: "#2a2c42", width: "100%", mt: 2 }}>
+            <Typography sx={{ textTransform: "uppercase", color: "#fff" }}>
+              {months[new Date().getMonth()]} sale
+            </Typography>
+            <Box sx={{ width: "100%" }}>
+              <img
+                width="100%"
+                src={cars[3].images[7]}
+                alt=""
+              />
+            </Box>
+            <Box sx={{ mt: -3, mb: 1 }}>
+              <Button
+                variant="contained"
+                disableElevation
+                sx={{
                   bgcolor: "#ed1f1f",
-                },
-                borderRadius: 0,
-                width: "90%",
-              }}
-            >
-              Ksh {cars[3].price}
-            </Button>
-          </Box>
-          <Box sx={{ px: 2 }}>
-            <Typography
-              sx={{
-                textTransform: "uppercase",
-                color: "#fff",
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-                fontSize: "0.6rem",
-                fontWeight: 600,
-              }}
-            >
-              Engine type:{" "}
-              <Typography
-                variant="subtitle1"
-                sx={{
-                  textTransform: "capitalize",
-                  fontSize: "0.6rem",
-                  color: "#c1c1c1",
+                  ":hover": {
+                    bgcolor: "#ed1f1f",
+                  },
+                  borderRadius: 0,
+                  width: "90%",
                 }}
               >
-                Four Cylinder
+                Ksh {cars[3].price}
+              </Button>
+            </Box>
+            <Box sx={{ px: 2 }}>
+              <Typography
+                sx={{
+                  textTransform: "uppercase",
+                  color: "#fff",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  fontSize: "0.6rem",
+                  fontWeight: 600,
+                }}
+              >
+                Engine type:{" "}
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    textTransform: "capitalize",
+                    fontSize: "0.6rem",
+                    color: "#c1c1c1",
+                  }}
+                >
+                  Four Cylinder
+                </Typography>
               </Typography>
-            </Typography>
 
-            <Typography
-              sx={{
-                textTransform: "uppercase",
-                color: "#fff",
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-                fontSize: "0.6rem",
-                fontWeight: 600,
-              }}
-            >
-              Transmission:{" "}
               <Typography
-                variant="subtitle1"
                 sx={{
-                  textTransform: "capitalize",
+                  textTransform: "uppercase",
+                  color: "#fff",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
                   fontSize: "0.6rem",
-                  color: "#c1c1c1",
+                  fontWeight: 600,
                 }}
               >
-                {cars[3].transmission}
+                Transmission:{" "}
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    textTransform: "capitalize",
+                    fontSize: "0.6rem",
+                    color: "#c1c1c1",
+                  }}
+                >
+                  {cars[3].transmission}
+                </Typography>
               </Typography>
-            </Typography>
 
-            <Typography
-              sx={{
-                textTransform: "uppercase",
-                color: "#fff",
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-                fontSize: "0.6rem",
-                fontWeight: 600,
-              }}
-            >
-              Fuel type:{" "}
               <Typography
-                variant="subtitle1"
                 sx={{
-                  textTransform: "capitalize",
+                  textTransform: "uppercase",
+                  color: "#fff",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
                   fontSize: "0.6rem",
-                  color: "#c1c1c1",
+                  fontWeight: 600,
                 }}
               >
-                {cars[3].fuelType}
+                Fuel type:{" "}
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    textTransform: "capitalize",
+                    fontSize: "0.6rem",
+                    color: "#c1c1c1",
+                  }}
+                >
+                  {cars[3].fuelType}
+                </Typography>
               </Typography>
-            </Typography>
 
-            <Typography
-              sx={{
-                textTransform: "uppercase",
-                color: "#fff",
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-                fontSize: "0.6rem",
-                fontWeight: 600,
-              }}
-            >
-              vehicle ID:{" "}
               <Typography
-                variant="subtitle1"
                 sx={{
-                  textTransform: "capitalize",
+                  textTransform: "uppercase",
+                  color: "#fff",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
                   fontSize: "0.6rem",
-                  color: "#c1c1c1",
+                  fontWeight: 600,
                 }}
               >
-                Qx8qx8imZ
+                vehicle ID:{" "}
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    textTransform: "capitalize",
+                    fontSize: "0.6rem",
+                    color: "#c1c1c1",
+                  }}
+                >
+                  Qx8qx8imZ
+                </Typography>
               </Typography>
-            </Typography>
-          </Box>
-          <NavLink to="/quote">
-            <Button
-              variant="contained"
-              disableElevation
-              sx={{
-                my: 2,
-                bgcolor: "#ed1f1f",
-                ":hover": {
+            </Box>
+            <NavLink to="/quote">
+              <Button
+                variant="contained"
+                disableElevation
+                sx={{
+                  my: 2,
                   bgcolor: "#ed1f1f",
-                },
-                borderRadius: 0,
-                width: "90%",
-              }}
-            >
-              GET QUOTE
-            </Button>
-          </NavLink>
-        </Box>
-      </NavLink>
+                  ":hover": {
+                    bgcolor: "#ed1f1f",
+                  },
+                  borderRadius: 0,
+                  width: "90%",
+                }}
+              >
+                GET QUOTE
+              </Button>
+            </NavLink>
+          </Box>
+        </NavLink>
+      </Box>
     </Box>
   );
 }
