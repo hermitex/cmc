@@ -48,7 +48,7 @@ const options = [
 
 function ResultsHeader() {
   const [sortOption, setsortOption] = React.useState<string[]>([]);
-  const [isGridView, setGridView] = React.useState(false);
+  const [isGridView, setGridView] = React.useState(true);
   const [listView, setListView] = React.useState(false);
 
   const handleGridView = () => {

@@ -46,7 +46,9 @@ function CarGrid({ isGridView }: { isGridView: Boolean }) {
                 py: 1,
                 ":hover": {
                   boxShadow: 2,
+                  border: "1px solid #ff4605",
                 },
+                border: "1px solid #eef0f1",
                 transition: "0.7s ease-in-out",
               }}
             >
