@@ -7,6 +7,9 @@ CMC is a simple, yet modern landing page for a car dealership built with ReactJS
 - View detailed information and photos of each vehicle
 - Contact the dealership directly through the site for more information or to schedule a test drive
 
+## Live Link
+The site has been deployed on [vercel](https://cmc-pi.vercel.app)
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
