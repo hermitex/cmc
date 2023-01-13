@@ -33,14 +33,14 @@ function Footer() {
   return (
     <Box
       sx={{
-        backgroundImage: `url(${footerBg})`,
+        background: `radial-gradient(circle, rgba(0,0,0,0.1) 13%, rgba(0,0,0,0.7746498257506127) 78%), url(${footerBg})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         mt: 3,
         px: 4,
         py: 5,
 
-        minHeight: '50vh'
+        minHeight: "50vh",
       }}
     >
       <Box
@@ -71,12 +71,18 @@ function Footer() {
           </Typography>
 
           <NavLink to="/about">
-            <Button disableElevation sx={{ color: "#fff" }}>
+            <Button
+              disableElevation
+              sx={{ color: "#fff" }}
+            >
               read more
             </Button>
           </NavLink>
           <Box component="form">
-            <FormControl sx={{ width: "27ch" }} variant="outlined">
+            <FormControl
+              sx={{ width: "27ch" }}
+              variant="outlined"
+            >
               {/* <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel> */}
               <OutlinedInput
                 id="outlined-adornment-email"
@@ -135,6 +141,7 @@ function Footer() {
               LINKS
             </Link>{" "}
           </Typography>
+
           <Box
             sx={{
               display: "grid",
@@ -142,11 +149,24 @@ function Footer() {
                 xs: "repeat(1, 1fr)",
                 md: "repeat(2, 1fr)",
               },
-              gap: 3,
+              gap: 2,
             }}
           >
             <Typography>
-              USEFULL{" "}
+              <Link
+                href=""
+                sx={{
+                  color: "#fff",
+                  ":hover": {
+                    color: "#ed1f1f",
+                  },
+                  textDecoration: "none",
+                }}
+              >
+                LISTINGS
+              </Link>{" "}
+            </Typography>
+            <Typography>
               <Link
                 href=""
                 sx={{
@@ -157,12 +177,52 @@ function Footer() {
                   textDecoration: "none",
                 }}
               >
-                {" "}
-                LISTINGS FAQ{" "}
+                SERVICES
               </Link>{" "}
             </Typography>
             <Typography>
-              USEFULL{" "}
+              <Link
+                href=""
+                sx={{
+                  color: "#ed1f1f",
+                  ":hover": {
+                    color: "#ed1f1f",
+                  },
+                  textDecoration: "none",
+                }}
+              >
+                ABOUT
+              </Link>{" "}
+            </Typography>
+            <Typography>
+              <Link
+                href=""
+                sx={{
+                  color: "#ed1f1f",
+                  ":hover": {
+                    color: "#ed1f1f",
+                  },
+                  textDecoration: "none",
+                }}
+              >
+                BLOG
+              </Link>{" "}
+            </Typography>
+            <Typography>
+              <Link
+                href=""
+                sx={{
+                  color: "#ed1f1f",
+                  ":hover": {
+                    color: "#ed1f1f",
+                  },
+                  textDecoration: "none",
+                }}
+              >
+                FAQ
+              </Link>{" "}
+            </Typography>
+            <Typography>
               <Link
                 href=""
                 sx={{
@@ -177,7 +237,6 @@ function Footer() {
               </Link>{" "}
             </Typography>
             <Typography>
-              USEFULL{" "}
               <Link
                 href=""
                 sx={{
@@ -192,7 +251,6 @@ function Footer() {
               </Link>{" "}
             </Typography>
             <Typography>
-              USEFULL{" "}
               <Link
                 href=""
                 sx={{
@@ -203,7 +261,7 @@ function Footer() {
                   textDecoration: "none",
                 }}
               >
-                CONTACTS{" "}
+                CONTACTS
               </Link>{" "}
             </Typography>
           </Box>
@@ -252,25 +310,33 @@ function Footer() {
           }}
         >
           <Typography>
+            RECENT
             <Link
               href=""
               sx={{
-                color: "#fff",
+                color: "#ed1f1f",
                 ":hover": {
                   color: "#ed1f1f",
                 },
                 textDecoration: "none",
               }}
             >
-              RECENT POSTS
+              {" "}
+              POSTS
             </Link>
           </Typography>
 
           <Box sx={{ height: "10vh" }}>
             {cars.slice(0, 3).map((car, i) => (
-              <NavLink key={car.id} to="/posts">
+              <NavLink
+                key={car.id}
+                to="/posts"
+              >
                 <Box sx={{ display: "flex", gap: 2 }}>
-                  <Box component="image" sx={{ width: 50, mb: 3 }}>
+                  <Box
+                    component="image"
+                    sx={{ width: 50, mb: 3 }}
+                  >
                     <img
                       height="100%"
                       width="100%"
@@ -295,39 +361,124 @@ function Footer() {
           </Box>
         </Box>
       </Box>
-
-      <Box>
-        <Divider sx={{ height: "1px", my: 3, bgcolor: "#5d5f65" }} />
-        <Box>
+      <Divider sx={{ height: "1px", my: 3, bgcolor: "#5d5f65" }} />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: {
+            xs: "column",
+            md: "row",
+          },
+          justifyContent: "space-between",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            gap: 2
+          }}
+        >
           <Typography>
             Copyright ©Sepia. All Rights Reserved.{" "}
-            <NavLink to="privacy-policy" style={{}}>
+            <NavLink
+              to="privacy-policy"
+              style={{}}
+            >
               Privacy Policy
             </NavLink>
           </Typography>
+          <Divider
+            orientation="vertical"
+            sx={{ width: "1px", bgcolor: "#5d5f65" }}
+          />
+          <Typography>
+            Website Developed by{" "}
+            <NavLink
+              to="privacy-policy"
+              style={{}}
+            >
+              www.sepia.co.ke
+            </NavLink>
+          </Typography>
         </Box>
-        <Divider
-          orientation="vertical"
-          sx={{ width: "1px", bgcolor: "#5d5f65" }}
-        />
+
         <Box sx={{ display: "flex" }}>
-          <Link href="htpps://facebook.com">
-            <IconButton>
-              <Facebook />
-            </IconButton>
-          </Link>
+          <IconButton
+            sx={{
+              border: "1px solid #fff",
+              width: 5,
+              height: 5,
+              p: 1.5,
+              mr: 1,
+              ":hover": {
+                color: "#E91F1F",
+              },
+            }}
+          >
+            <Link
+              sx={{
+                color: "#fff",
+                ":hover": {
+                  color: "#E91F1F",
+                },
+              }}
+              href="htpps://facebook.com"
+            >
+              <Facebook sx={{ height: 15, width: 15 }} />
+            </Link>
+          </IconButton>
 
-          <Link href="https://twitter.com">
-            <IconButton>
-              <Twitter />
-            </IconButton>
-          </Link>
+          <IconButton
+            sx={{
+              border: "1px solid #fff",
+              width: 5,
+              height: 5,
+              p: 1.5,
+              mr: 1,
+              ":hover": {
+                color: "#E91F1F",
+              },
+            }}
+          >
+            <Link
+              sx={{
+                color: "#fff",
+                ":hover": {
+                  color: "#E91F1F",
+                },
+              }}
+              href="https://twitter.com"
+            >
+              <Twitter sx={{ height: 15, width: 15 }} />
+            </Link>
+          </IconButton>
 
-          <Link href="https://google.com">
-            <IconButton>
-              <Google />
-            </IconButton>
-          </Link>
+          <IconButton
+            sx={{
+              border: "1px solid #fff",
+              width: 5,
+              height: 5,
+              p: 1.5,
+              mr: 1,
+              ":hover": {
+                color: "#E91F1F",
+              },
+            }}
+          >
+            <Link
+              sx={{
+                color: "#fff",
+                ":hover": {
+                  color: "#E91F1F",
+                },
+              }}
+              href="https://google.com"
+            >
+              <Google sx={{ height: 15, width: 15 }} />
+            </Link>
+          </IconButton>
         </Box>
       </Box>
     </Box>
