@@ -49,10 +49,10 @@ function Models() {
         display: "flex",
         width: "100%",
         overflow: "hidden",
-        mx: 'auto',
+        mx: "auto",
         // gap: 2,
         height: { xs: "85%", sm: "50%" },
-
+        bgcolor: "#1f2139",
       }}
     >
       <motion.div
@@ -73,7 +73,11 @@ function Models() {
           dragControls={dragControls}
           dragConstraints={{ right: 0, left: -width }}
           className="scroll-inner"
-          style={{ display: "flex", justifyContent: "space-between", width: '100%' }}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            width: "100%",
+          }}
         >
           {cars.map((car: Car) => (
             <

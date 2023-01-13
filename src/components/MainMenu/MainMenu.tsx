@@ -5,8 +5,20 @@ import {
   LinkedIn,
   Mail,
   Twitter,
+  ExpandMore,
+  Menu,
 } from "@mui/icons-material";
-import { AppBar, Box, Button, Container, Link } from "@mui/material";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  AppBar,
+  Box,
+  Button,
+  Container,
+  Link,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import CountrySelect from "./CountrySelect";
 import cmc from "./cmc.png";
@@ -202,7 +214,10 @@ function MainMenu() {
                 }}
               />
               <NavLink to="/">
-                <img src={cmc} width={35} />
+                <img
+                  src={cmc}
+                  width={35}
+                />
               </NavLink>
               <CountrySelect />
             </Box>
@@ -284,14 +299,11 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 
-type Anchor = "top" | "left" | "bottom" | "right";
+type Anchor = "left";
 
 function MenuDrawer() {
   const [state, setState] = React.useState({
-    top: false,
     left: false,
-    bottom: false,
-    right: false,
   });
 
   const toggleDrawer =
@@ -310,31 +322,42 @@ function MenuDrawer() {
 
   const list = (anchor: Anchor) => (
     <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+      // sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
+       <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          width: '100%',
+        }}
+      >
+        <Button sx={{  width: '100%',}}>
+          <NavLink to="/" style={{  width: '100%',}}>
+            <img
+              src={cmc}
+              width={35}
+            />
+          </NavLink>
+        </Button>
+      </Box>
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
+        {[
+          "Our Range",
+          "Tractors & Implements",
+          "Vehicles",
+          "Two Wheelers",
+          "Aftersales",
+          "About Us",
+          "Contact Us",
+        ].map((text, index) => (
+          <ListItem
+            key={text}
+            disablePadding
+          >
             <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
@@ -345,9 +368,29 @@ function MenuDrawer() {
 
   return (
     <div>
-      {(["left", "right", "top", "bottom"] as const).map((anchor) => (
+      {(["left"] as const).map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              px: 2,
+              py: 1,
+            }}
+          >
+            <Button>
+              <NavLink to="/">
+                <img
+                  src={cmc}
+                  width={35}
+                />
+              </NavLink>
+            </Button>
+            <Button onClick={toggleDrawer(anchor, true)}>
+              <Menu sx={{ color: "#e91f1f" }} />
+            </Button>
+          </Box>
+
           <Drawer
             anchor={anchor}
             open={state[anchor]}

@@ -110,7 +110,7 @@ function CarGallery({ car }: { car: any }) {
   return (
     <Box
       sx={{
-        borderRadius: 5,
+        borderRadius: 0,
       }}
     >
       <Carousel
@@ -127,28 +127,50 @@ function CarGallery({ car }: { car: any }) {
         // transitionTime={1}
       >
         {car.images.map((image: string) => (
-          <Box key={image} sx={{ position: "relative", height: "100vh" }}>
-            <img src={image} style={{ borderRadius: 5 }} />
-            <>
+          <Box
+            key={image}
+            sx={{ position: "relative", height: { md: "100vh" } }}
+          >
+            <img
+              src={image}
+              style={{ borderRadius: 0 }}
+            />
+
+            <Box
+              sx={{
+                position: "absolute",
+                display: { xs: "none", md: "flex" },
+                justifyContent: "center",
+                alignContent: "center",
+
+                flexDirection: "column",
+                // bottom: "30%",
+                top: "calc(10% - 15px)",
+                width: "100%",
+                height: "100%",
+                // p: 2,
+                alignItems: "flex-start",
+                textAlign: "left",
+                background:
+                  "radial-gradient(circle, rgba(0,0,0,0.1) 13%, rgba(0,0,0,0.7746498257506127) 78%)",
+              }}
+            >
               <Box
                 sx={{
-                  position: "absolute",
                   display: "flex",
-                  gap: 2,
                   flexDirection: "column",
-                  bottom: "30%",
-                  height: "calc(30% - 15px)",
-                  left: "5rem",
-                  width: "30vw",
-                  alignItems: "flex-start",
-                  textAlign: "left",
+                  gap: 2,
+                  px: 10,
+                  width: "40vw",
                 }}
               >
                 <Typography>FIND YOUR MATCH</Typography>
                 <Box>
                   <Button
                     variant="contained"
+                    disableElevation
                     sx={{
+                      borderRadius: 0,
                       width: "20vw",
                       textTransform: "capitalize",
                       color: "#fff",
@@ -168,7 +190,9 @@ function CarGallery({ car }: { car: any }) {
                 <Box>
                   <Button
                     variant="contained"
+                    disableElevation
                     sx={{
+                      borderRadius: 0,
                       width: "20vw",
                       textTransform: "capitalize",
                       color: "#fff",
@@ -182,7 +206,36 @@ function CarGallery({ car }: { car: any }) {
                   </Button>
                 </Box>
               </Box>
-            </>
+
+              <Box
+                sx={{
+                  position: "absolute",
+                  display: { xs: "flex", md: "none" },
+                  gap: 2,
+                  flexDirection: "column",
+                  bottom: "30%",
+                  top: "calc(100% - 30%)",
+                  left: "5rem",
+                  alignItems: "flex-start",
+                  textAlign: "left",
+                }}
+              >
+                <Button
+                  variant="contained"
+                  disableElevation
+                  sx={{
+                    textTransform: "capitalize",
+                    color: "#fff",
+                    bgcolor: "#ed1f1f",
+                    ":hover": {
+                      bgcolor: "#ed1f1f",
+                    },
+                  }}
+                >
+                  GET QUOTE
+                </Button>
+              </Box>
+            </Box>
           </Box>
         ))}
       </Carousel>
