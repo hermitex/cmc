@@ -184,7 +184,7 @@ function Footer() {
               <Link
                 href=""
                 sx={{
-                  color: "#ed1f1f",
+                  color: "#fff",
                   ":hover": {
                     color: "#ed1f1f",
                   },
@@ -198,7 +198,7 @@ function Footer() {
               <Link
                 href=""
                 sx={{
-                  color: "#ed1f1f",
+                  color: "#fff",
                   ":hover": {
                     color: "#ed1f1f",
                   },
@@ -212,7 +212,7 @@ function Footer() {
               <Link
                 href=""
                 sx={{
-                  color: "#ed1f1f",
+                  color: "#fff",
                   ":hover": {
                     color: "#ed1f1f",
                   },
@@ -226,7 +226,7 @@ function Footer() {
               <Link
                 href=""
                 sx={{
-                  color: "#ed1f1f",
+                  color: "#fff",
                   ":hover": {
                     color: "#ed1f1f",
                   },
@@ -240,7 +240,7 @@ function Footer() {
               <Link
                 href=""
                 sx={{
-                  color: "#ed1f1f",
+                  color: "#fff",
                   ":hover": {
                     color: "#ed1f1f",
                   },
@@ -254,7 +254,7 @@ function Footer() {
               <Link
                 href=""
                 sx={{
-                  color: "#ed1f1f",
+                  color: "#fff",
                   ":hover": {
                     color: "#ed1f1f",
                   },
