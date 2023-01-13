@@ -12,7 +12,7 @@ function CarGrid({ isGridView }: { isGridView: Boolean }) {
         display: { xs: "grid", lg: isGridView ? "grid" : "none" },
         gridTemplateColumns: {
           xs: "repeat(1, 1fr)",
-          sm: "repeat(2, 1fr)",
+          // sm: "repeat(2, 1fr)",
           md: "repeat(3, 1fr)",
         },
         gap: 2,
@@ -45,7 +45,8 @@ function CarGrid({ isGridView }: { isGridView: Boolean }) {
             <Box
               key={car.id}
               sx={{
-                width: { xs: "100vw", md: "95%" },
+                width: {  md: "95%" },
+                maxWidth: '100vw',
                 mx: "auto",
                 p: 0.5,
                 // py: 1,

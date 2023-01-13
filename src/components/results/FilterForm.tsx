@@ -88,13 +88,14 @@ function FilterForm() {
   ];
 
   return (
-    <Box sx={{ bgcolor: "#f2f5fb", width: { xs: "100vw", md: "12rem" } }}>
+    <Box sx={{ bgcolor: "#f2f5fb", width: { md: "12rem" },    maxWidth: '100vw' }}>
       <Box sx={{ display: { xs: "block", bgcolor: "#2b2d42" } }}>
         <Button
           onClick={toggleFilters}
           onMouseEnter={toggleHover}
           sx={{
             width: "100%",
+
             bgcolor: "#2b2d42",
             color: "#fff",
             ":hover": { bgcolor: "#ed1f1f" },

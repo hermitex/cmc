@@ -109,7 +109,7 @@ function ResultsHeader() {
           px: 3,
           my: 3,
           py: 1,
-          height: { xs: "30vh", md: "auto" },
+          height:  "auto" ,
           color: "#fff",
         }}
       >
