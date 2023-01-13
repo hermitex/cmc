@@ -17,7 +17,7 @@ These instructions will get you a copy of the project up and running on your loc
 ## Installing
 - Clone the repository
 ```bash
- git clone https://github.com/[username]/CMC.git
+ git clone https://github.com/hermitex/CMC.git
 ```
 - Install the dependencies
 ```bash
