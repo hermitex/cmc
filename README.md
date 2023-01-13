@@ -47,5 +47,5 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 - Material UI for providing the UI components
 
 ## Screenshots
-Add some screenshots of the landing page here.
+Here is the page screenshot.
 ![Home Page](./src//assets/demo/cmc-demo.png)
