@@ -13,7 +13,7 @@ function Results() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: 3,
+        // gap: 2,
       }}
     >
       <Models />
