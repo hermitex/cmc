@@ -39,6 +39,8 @@ function Footer() {
         mt: 3,
         px: 4,
         py: 5,
+
+        minHeight: '50vh'
       }}
     >
       <Box

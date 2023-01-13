@@ -13,6 +13,7 @@ function Results() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        maxWidth: '100vw'
         // gap: 2,
       }}
     >
