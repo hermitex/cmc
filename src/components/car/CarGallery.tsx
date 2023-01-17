@@ -132,6 +132,7 @@ function CarGallery({ car }: { car: any }) {
             sx={{ position: "relative", height: { md: "100vh" } }}
           >
             <img
+              height="100%"
               src={image}
               style={{ borderRadius: 0 }}
             />
@@ -139,7 +140,7 @@ function CarGallery({ car }: { car: any }) {
             <Box
               sx={{
                 position: "absolute",
-                display: { xs: "none", md: "flex" },
+                display:  "flex" ,
                 justifyContent: "center",
                 alignContent: "center",
 
@@ -157,7 +158,7 @@ function CarGallery({ car }: { car: any }) {
             >
               <Box
                 sx={{
-                  display: "flex",
+                  display: { xs: "none", md: "flex" },
                   flexDirection: "column",
                   gap: 2,
                   px: 10,
@@ -214,12 +215,14 @@ function CarGallery({ car }: { car: any }) {
                   gap: 2,
                   flexDirection: "column",
                   bottom: "30%",
-                  top: "calc(100% - 30%)",
+                  // top: "calc(10% - 15%)",
                   left: "5rem",
                   alignItems: "flex-start",
                   textAlign: "left",
+                  fontSize: '0.8rem'
                 }}
               >
+                <Typography>THE NEW MAZDA CX 30</Typography>
                 <Button
                   variant="contained"
                   disableElevation
