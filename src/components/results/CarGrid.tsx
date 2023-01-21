@@ -2,12 +2,28 @@ import { Star } from "@mui/icons-material";
 import { Box, Button, IconButton, Typography } from "@mui/material";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { cars } from "../data/carsData";
+import { CarInterface, cars } from "../data/carsData";
 import { motion } from "framer-motion";
 
 function CarGrid({ isGridView, carPrice }: { isGridView: Boolean, carPrice: [0, 0] | null }) {
 
-  // console.log(carsToShow)
+  const [carsToShow, setCarsToShow] = React.useState<CarInterface[]>([]);
+
+  React.useEffect(() => {
+    let filteredCars: CarInterface[] = [];
+    if (carPrice) {
+      filteredCars = cars.filter(
+        (car) => car.price > carPrice[0] && car.price < carPrice[1]
+      );
+      setCarsToShow(filteredCars);
+    }
+  }, [carPrice]);
+
+  let allCars = cars;
+
+  if(carsToShow.length){
+    allCars = carsToShow;
+  }
   return (
     <Box
       sx={{
@@ -20,7 +36,7 @@ function CarGrid({ isGridView, carPrice }: { isGridView: Boolean, carPrice: [0, 
         gap: 2,
       }}
     >
-      {cars.map((car, i) => (
+      {allCars.map((car, i) => (
         <Box
         key={car.id}
           sx={{
