@@ -196,9 +196,10 @@ function CarsListView({ isGridView }: { isGridView: Boolean }) {
                 <Typography
                   fontWeight="600"
                   fontSize="1.5rem"
-                  sx={{ color: "#ff4605" }}
+                  textOverflow='ellipsis'
+                  sx={{ color: "#ff4605", width: 'fit-content' }}
                 >
-                  ${car.price}
+                  Ksh.{car.price}
                 </Typography>
                 <Box
                   sx={{
