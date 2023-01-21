@@ -65,7 +65,7 @@ export default function CountrySelect() {
   );
 }
 
-interface CountryType {
+export interface CountryType {
   code: string;
   label: string;
   phone: string;

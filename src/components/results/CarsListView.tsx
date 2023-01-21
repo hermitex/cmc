@@ -17,15 +17,39 @@ import {
   StarBorderRounded,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import { cars } from "../data/carsData";
+import { CarInterface, cars } from "../data/carsData";
 
-function CarsListView({ isGridView }: { isGridView: Boolean }) {
+function CarsListView({
+  isGridView,
+  carPrice,
+}: {
+  isGridView: Boolean;
+  carPrice: [0, 0] | null;
+}) {
   const theme = useTheme();
   const [isLiked, setIsLiked] = React.useState(false);
+  const [carsToShow, setCarsToShow] = React.useState<CarInterface[]>([]);
 
-  const handleLike = () => {
+  const handleLike = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
     setIsLiked((isLiked) => !isLiked);
   };
+
+  React.useEffect(() => {
+    let filteredCars: CarInterface[] = [];
+    if (carPrice) {
+      filteredCars = cars.filter(
+        (car) => car.price > carPrice[0] && car.price < carPrice[1]
+      );
+      setCarsToShow(filteredCars);
+    }
+  }, [carPrice]);
+
+  let allCars = cars;
+
+  if(carsToShow.length){
+    allCars = carsToShow;
+  }
 
   return (
     <Box
@@ -37,8 +61,13 @@ function CarsListView({ isGridView }: { isGridView: Boolean }) {
         width: "100%",
       }}
     >
-      {cars.map((car) => (
-        <Link key={car.id} to="/details" state={car} style={{ width: "100%" }}>
+      {allCars.map((car, i) => (
+        <Link
+          key={car.id}
+          to="/details"
+          state={car}
+          style={{ width: "100%" }}
+        >
           <Card
             sx={{
               display: "flex",
@@ -62,7 +91,7 @@ function CarsListView({ isGridView }: { isGridView: Boolean }) {
                 flexDirection: "row",
                 width: 250,
               }}
-              image={car.images[Math.floor(Math.random() * car.images.length)]}
+              image={car.images[i]}
               alt={car.title}
             />
             <Box
@@ -74,7 +103,10 @@ function CarsListView({ isGridView }: { isGridView: Boolean }) {
               }}
             >
               <CardContent sx={{ flex: "1 0 auto", textAlign: "left" }}>
-                <Typography component="div" variant="h5">
+                <Typography
+                  component="div"
+                  variant="h5"
+                >
                   {car.title}
                 </Typography>
                 <Typography
@@ -187,7 +219,11 @@ function CarsListView({ isGridView }: { isGridView: Boolean }) {
               <Box>
                 <IconButton onClick={handleLike}>
                   <StarBorderRounded
-                    sx={{ color: isLiked ? "#ff4605" : undefined }}
+                    onClick={(event: any) => event.target.stopPropagation()}
+                    sx={{
+                      color: isLiked ? "#ff4605" : undefined,
+                      ":hover": { color: "#ff4605" },
+                    }}
                   />
                 </IconButton>
               </Box>
@@ -196,8 +232,8 @@ function CarsListView({ isGridView }: { isGridView: Boolean }) {
                 <Typography
                   fontWeight="600"
                   fontSize="1.5rem"
-                  textOverflow='ellipsis'
-                  sx={{ color: "#ff4605", width: 'fit-content' }}
+                  textOverflow="ellipsis"
+                  sx={{ color: "#ff4605", width: "fit-content" }}
                 >
                   Ksh.{car.price}
                 </Typography>

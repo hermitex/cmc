@@ -9,7 +9,7 @@ import car8 from "../../assets/cars/car-24.jpg";
 import car9 from "../../assets/cars/car-25.jpg";
 import car10 from "../../assets/cars/car-26.jpg";
 import { Box } from "@mui/material";
-interface CarInterface {
+export interface CarInterface {
   id: number;
   title: string;
   images: string[];

@@ -5,7 +5,9 @@ import { NavLink } from "react-router-dom";
 import { cars } from "../data/carsData";
 import { motion } from "framer-motion";
 
-function CarGrid({ isGridView }: { isGridView: Boolean }) {
+function CarGrid({ isGridView, carPrice }: { isGridView: Boolean, carPrice: [0, 0] | null }) {
+
+  // console.log(carsToShow)
   return (
     <Box
       sx={{

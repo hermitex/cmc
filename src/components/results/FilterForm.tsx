@@ -43,7 +43,7 @@ function valuetext(value: number) {
   return `${value}Kesh`;
 }
 
-function FilterForm() {
+function FilterForm({getPrice}: {getPrice: any}) {
   const [expanded, setExpanded] = React.useState<boolean | false>(false);
   const [showFilters, setShowFilters] = React.useState<boolean | false>(false);
   const [isHovered, setIsHovered] = React.useState<boolean | false>(false);
@@ -70,6 +70,7 @@ function FilterForm() {
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
+    getPrice(value)
   };
 
   const months = [
