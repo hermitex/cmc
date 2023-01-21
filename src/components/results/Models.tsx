@@ -1,5 +1,5 @@
 import { Box, Container, Typography } from "@mui/material";
-import React, { useEffect, useRef, useState } from "react";
+import React, { ReactEventHandler, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion, useDragControls } from "framer-motion";
 import convertible from "../../assets/models/Convertible.png";
@@ -8,6 +8,7 @@ import pickup from "../../assets/models/pickup_truck.png";
 import sedan from "../../assets/models/sedan.png";
 import van from "../../assets/models/van.png";
 import wagon from "../../assets/models/wagon.png";
+import "./model.css";
 
 const activeStyles = {
   backgroundColor: "#fff",
@@ -31,6 +32,7 @@ const cars = [
 function Models() {
   const [width, setWidth] = useState(0);
   const scrollContainer: any = useRef();
+  // const [isActive, setIsActive] = useState<boolean>(false);
 
   useEffect(() => {
     let scrollableWidth =
@@ -43,6 +45,14 @@ function Models() {
   function startDrag(event: PointerEvent | React.PointerEvent<Element>) {
     dragControls.start(event, { snapToCursor: true });
   }
+
+  function handleClick(event: any) {
+    // event.stopPropagation()
+    if (!event.target.classList.contains("active")) {
+      event.target.classList.add("active");
+    }
+  }
+
   return (
     <Box
       sx={{
@@ -52,7 +62,7 @@ function Models() {
         mx: "auto",
         // gap: 2,
         height: { xs: "85%", sm: "50%" },
-        bgcolor: "#1f2139",
+        bgcolor: "#2b2d42",
       }}
     >
       <motion.div
@@ -80,29 +90,20 @@ function Models() {
           }}
         >
           {cars.map((car: Car) => (
-            <
-              // key={car.name}
-              // to="/"
-              // style={{ width: "100%" }}
-            >
-              <motion.div style={{ width: "100%" }}>
+            <>
+              <motion.div style={{ width: "100%" }} className="model-container">
                 <Box
-                  component="image"
                   sx={{
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     py: 1,
                     px: 3,
-                    ":nth-of-type(odd)": {
-                      bgcolor: "#1f2139",
-                    },
-                    ":nth-of-type(even)": {
-                      bgcolor: "#2b2d42",
-                    },
+
                     color: "#fff",
                     ":hover": {
                       color: "#ed1f1f",
+                      bgcolor: "#f8f8f8",
                     },
                     transition: "0.25s ease-in-out",
                   }}

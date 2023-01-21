@@ -105,8 +105,6 @@ function CarGallery({ car }: { car: any }) {
     );
   };
 
-  const location = useLocation();
-
   return (
     <Box
       sx={{
