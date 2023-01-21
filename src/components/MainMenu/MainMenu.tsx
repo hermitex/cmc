@@ -235,7 +235,7 @@ function MainMenu() {
                 <Button
                   variant="contained"
                   sx={{
-                    width: "15vw",
+                    width: { xs: "auto", lg: "15vw" },
                     textTransform: "capitalize",
                     color: "#fff",
                     bgcolor: "#ed1f1f",
@@ -251,7 +251,7 @@ function MainMenu() {
                 <Button
                   variant="outlined"
                   sx={{
-                    width: "15vw",
+                    width: { xs: "auto", lg: "15vw" },
                     textTransform: "capitalize",
                     color: "#bdbdbd",
                     ":hover": {
@@ -266,7 +266,7 @@ function MainMenu() {
               <NavLink to="/after-sales">
                 <Button
                   sx={{
-                    width: "15vw",
+                    width: { xs: "auto", lg: "15vw" },
                     textTransform: "capitalize",
                     color: "#bdbdbd",
                     ":hover": {
@@ -327,15 +327,18 @@ function MenuDrawer() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-       <Box
+      <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          width: '100%',
+          width: "100%",
         }}
       >
-        <Button sx={{  width: '100%',}}>
-          <NavLink to="/" style={{  width: '100%',}}>
+        <Button sx={{ width: "100%" }}>
+          <NavLink
+            to="/"
+            style={{ width: "100%" }}
+          >
             <img
               src={cmc}
               width={35}
@@ -356,6 +359,11 @@ function MenuDrawer() {
           <ListItem
             key={text}
             disablePadding
+            sx={{
+              ":hover": {
+                color: "#ed1f1f",
+              },
+            }}
           >
             <ListItemButton>
               <ListItemText primary={text} />
