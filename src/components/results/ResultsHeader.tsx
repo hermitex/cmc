@@ -14,6 +14,7 @@ import {
   Container,
   FormControl,
   IconButton,
+  Input,
   InputAdornment,
   InputLabel,
   ListItemText,
@@ -108,8 +109,8 @@ function ResultsHeader() {
           // width: "100%",
           px: 3,
           my: 3,
-          py: 1,
-          height:  "auto" ,
+          py: 1.5,
+          height: "auto",
           color: "#fff",
         }}
       >
@@ -135,8 +136,8 @@ function ResultsHeader() {
               sx={{ width: { xs: "90vw", md: "20vw" }, height: "3rem" }}
             >
               <InputLabel
-                id="sort by"
-                sx={{ textTransform: "capitalize", color: "#fff" }}
+                sx={{ textTransform: "capitalize",  color: '#fff' }}
+                htmlFor="sort by"
               >
                 sort by
               </InputLabel>
@@ -145,13 +146,19 @@ function ResultsHeader() {
                 id="sort by"
                 value={sortOption}
                 onChange={handleSortChange}
-                input={<OutlinedInput label="sort by" />}
+                placeholder="Sort By"
+                input={<Input disableUnderline/>}
                 renderValue={(selected) => selected.join(", ")}
                 MenuProps={MenuProps}
                 sx={{
                   height: "3rem",
                   textTransform: "capitalize",
-                  boxShadow: 1,
+                  boxShadow: 0,
+                  bgcolor: "transparent",
+                  "::placeholder": {
+                    color: "#fff",
+                  },
+                  color: '#ed1f1f'
                 }}
               >
                 {sortOptions.map((option: any) => (
@@ -177,8 +184,8 @@ function ResultsHeader() {
               sx={{ width: { xs: "90vw", md: "20vw" }, height: "3rem" }}
             >
               <InputLabel
-                id="view"
-                sx={{ textTransform: "capitalize", color: "#fff" }}
+                sx={{ textTransform: "capitalize", color: '#fff' }}
+                htmlFor="view"
               >
                 view
               </InputLabel>
@@ -187,13 +194,19 @@ function ResultsHeader() {
                 id="view"
                 value={viewOption}
                 onChange={handleViewChange}
-                input={<OutlinedInput label="view" />}
+                placeholder="View"
+                input={<Input disableUnderline/>}
                 renderValue={(selected) => selected.join(", ")}
                 MenuProps={MenuProps}
                 sx={{
                   height: "3rem",
                   textTransform: "capitalize",
-                  boxShadow: 1,
+                  boxShadow: 0,
+                  bgcolor: 'transparent',
+                  "::placeholder": {
+                    color: "#fff",
+                  },
+                  color: '#ed1f1f'
                 }}
               >
                 {viewOptions.map((option: any) => (
@@ -216,54 +229,43 @@ function ResultsHeader() {
             </FormControl>
           </Box>
         </Box>
-        <Box
-          sx={{
-            display: "flex",
-            gap: 2,
-            flexDirection: {
-              xs: "column-reverse",
-              md: "row",
-            },
-            height: "3rem",
-          }}
-        >
-          <Box sx={{ display: { xs: "none", lg: "flex" } }}>
-            <Tooltip title="Grid view">
-              <Button
-                onClick={handleGridView}
-                sx={{
-                  textTransform: "capitalize",
-                  fontSize: "1.2rem",
-                  fontWeight: 300,
-                  px: 3,
-                  color: isGridView ? "#ED1F1F" : "#FFF",
-                  ":hover": {
-                    color: "#ED1F1F",
-                  },
-                }}
-              >
-                <AppsOutlined />
-              </Button>
-            </Tooltip>
 
-            <Tooltip title="List view">
-              <Button
-                onClick={handleListView}
-                sx={{
-                  textTransform: "capitalize",
-                  fontSize: "1.2rem",
-                  fontWeight: 300,
-                  px: 3,
-                  color: !isGridView ? "#ED1F1F" : "#FFF",
-                  ":hover": {
-                    color: "#ED1F1F",
-                  },
-                }}
-              >
-                <FormatListBulletedOutlined />
-              </Button>
-            </Tooltip>
-          </Box>
+        <Box sx={{ display: { xs: "none", lg: "flex" } }}>
+          <Tooltip title="Grid view">
+            <Button
+              onClick={handleGridView}
+              sx={{
+                textTransform: "capitalize",
+                fontSize: "1.2rem",
+                fontWeight: 300,
+                px: 3,
+                color: isGridView ? "#ED1F1F" : "#FFF",
+                ":hover": {
+                  color: "#ED1F1F",
+                },
+              }}
+            >
+              <AppsOutlined />
+            </Button>
+          </Tooltip>
+
+          <Tooltip title="List view">
+            <Button
+              onClick={handleListView}
+              sx={{
+                textTransform: "capitalize",
+                fontSize: "1.2rem",
+                fontWeight: 300,
+                px: 3,
+                color: !isGridView ? "#ED1F1F" : "#FFF",
+                ":hover": {
+                  color: "#ED1F1F",
+                },
+              }}
+            >
+              <FormatListBulletedOutlined />
+            </Button>
+          </Tooltip>
         </Box>
       </Box>
       <MainSection isGridView={isGridView} />

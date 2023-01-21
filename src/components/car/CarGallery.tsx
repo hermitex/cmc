@@ -30,6 +30,7 @@ function CarGallery({ car }: { car: any }) {
     display: "inline-block",
     margin: "0 8px",
     borderRadius: "100%",
+    cursor: 'pointer'
   };
 
   const renderArrowPrev = (
