@@ -80,6 +80,9 @@ function FilterForm({ getPrice }: { getPrice: any }) {
     color: "",
     year: "",
   });
+  const [yearErrors, setYearErrors] = React.useState<string>("");
+  const [priceErrors, setPriceErrors] = React.useState<string>("");
+
   const [data, setData] = React.useState<string[]>([]);
 
   const isMedium = useMediaQuery("(min-width: 900px)");
@@ -103,6 +106,29 @@ function FilterForm({ getPrice }: { getPrice: any }) {
     target: { name: string; value: string };
   }) => {
     setFilterData({ ...filterData, [event.target.name]: event.target.value });
+  };
+
+  const validate = (event: { target: { name: string; value: string } }) => {
+    const { name, value } = event.target;
+    const currentYear = new Date().getFullYear();
+    if (name === "year" && value.trim()) {
+      if(+value > currentYear){
+        setYearErrors(`Year must not exceed ${currentYear}`);
+        return;
+      }
+      if (!(+value >= 1997 && +value <= currentYear)) {
+        setYearErrors("Year must be greater than 1997");
+      } else {
+        setYearErrors("");
+      }
+    }
+    if (name === "price" && value.trim()) {
+      if (+value < 100000) {
+        setPriceErrors("The price must be at least 100k");
+      } else {
+        setPriceErrors("");
+      }
+    }
   };
 
   console.log(filterData);
@@ -175,7 +201,7 @@ function FilterForm({ getPrice }: { getPrice: any }) {
                     name={input.name}
                     input={<OutlinedInput label={input.label} />}
                     renderValue={(selected) => selected}
-                    sx={{ height: "3rem" }}
+                    sx={{ height: "3rem", textAlign: "left" }}
                   >
                     {input.options?.map((option: any) => (
                       <MenuItem
@@ -206,9 +232,20 @@ function FilterForm({ getPrice }: { getPrice: any }) {
                     sx={{ height: "3rem" }}
                     label={input.label}
                     onChange={updateSearchData}
+                    onBlur={validate}
                     name={input.name}
                     type={input.type}
                   />
+                  {input.name === "year" && yearErrors ? (
+                    <FormHelperText sx={{ color: "red", fontSize: "0.5rem" }}>
+                      {yearErrors}
+                    </FormHelperText>
+                  ) : null}
+                  {input.name === "price" && priceErrors ? (
+                    <FormHelperText sx={{ color: "red", fontSize: "0.5rem" }}>
+                      {priceErrors}
+                    </FormHelperText>
+                  ) : null}
                 </FormControl>
               ))}
           </Box>
