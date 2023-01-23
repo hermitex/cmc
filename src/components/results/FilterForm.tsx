@@ -6,6 +6,7 @@ import {
 import {
   Button,
   ButtonGroup,
+  Checkbox,
   Divider,
   FormControl,
   FormHelperText,
@@ -13,7 +14,11 @@ import {
   InputAdornment,
   InputLabel,
   Link,
+  ListItemText,
+  MenuItem,
   OutlinedInput,
+  Select,
+  TextField,
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
@@ -39,19 +44,46 @@ const isActiveLink = {
   borderTop: "0.5rem solid #ff5d46",
 };
 
+export interface IsearchData {
+  make: "";
+  model: "";
+  color: "";
+  year: "";
+}
+
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 function valuetext(value: number) {
   return `${value}Kesh`;
 }
 
-function FilterForm({getPrice}: {getPrice: any}) {
+function FilterForm({ getPrice }: { getPrice: any }) {
   const [expanded, setExpanded] = React.useState<boolean | false>(false);
   const [showFilters, setShowFilters] = React.useState<boolean | false>(false);
   const [isHovered, setIsHovered] = React.useState<boolean | false>(false);
+  const [filterData, setFilterData] = React.useState<IsearchData>({
+    make: "",
+    model: "",
+    color: "",
+    year: "",
+  });
+  const [data, setData] = React.useState<string[]>([]);
+
   const isMedium = useMediaQuery("(min-width: 900px)");
 
-  const handleMore = () => {
-    setExpanded((isExpanded) => !isExpanded);
-  };
   const toggleFilters = () => {
     setShowFilters((showFilters) => !showFilters);
   };
@@ -60,36 +92,22 @@ function FilterForm({getPrice}: {getPrice: any}) {
     setIsHovered((isHovered) => !isHovered);
   };
 
-  const overRideDisplay = () => {
-    alert(1);
-    setShowFilters(true);
-    return "grid";
-  };
-
   const [value, setValue] = React.useState<number[]>([100000, 10000000]);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
-    getPrice(value)
+    getPrice(value);
   };
 
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+  const updateSearchData = (event: {
+    target: { name: string; value: string };
+  }) => {
+    setFilterData({ ...filterData, [event.target.name]: event.target.value });
+  };
 
+  console.log(filterData);
   return (
-    <Box sx={{ bgcolor: "#f2f5fb", width: { md: "12rem" },    maxWidth: '100vw' }}>
+    <Box sx={{ bgcolor: "#f2f5fb", width: { md: "12rem" }, maxWidth: "100vw" }}>
       <Box sx={{ display: { xs: "block", bgcolor: "#2b2d42" } }}>
         <Button
           onClick={toggleFilters}
@@ -139,36 +157,61 @@ function FilterForm({getPrice}: {getPrice: any}) {
             }}
           >
             {searchInputData
-              .filter((input) => input.name.toLocaleLowerCase() != "price")
-              .map((input) => {
-                return input.type.toLocaleLowerCase() === "select" ? (
-                  <MultipleSelect key={input.name} input={input} />
-                ) : (
-                  <FormControl
-                    sx={{ m: 1, height: "3rem" }}
-                    key={input.name}
-                    className="w-full"
+              .filter((input) => input.type.toLocaleLowerCase() === "select")
+              .map((input) => (
+                <FormControl sx={{ m: 1, height: "3rem" }}>
+                  <InputLabel
+                    id={input.name}
+                    sx={{ textTransform: "capitalize" }}
                   >
-                    <InputLabel
-                      sx={{ textTransform: "capitalize" }}
-                      htmlFor={input.name}
-                    >
-                      {input.label}
-                    </InputLabel>
-                    <OutlinedInput
-                      sx={{ height: "3rem" }}
-                      id={input.name}
-                      name={input.name}
-                      //   onChange={handleChange}
-                      //   onBlur={handleBlur}
-                      //   value={values.name}
-                      type={input.type}
-                      //   placeholder={input.placeholder}
-                      label={input.name}
-                    />
-                  </FormControl>
-                );
-              })}
+                    {input.label}
+                  </InputLabel>
+                  <Select
+                    labelId={input.name}
+                    id={input.name}
+                    multiple={input.isMultiple}
+                    // value={data[input.name]}
+                    onChange={updateSearchData}
+                    name={input.name}
+                    input={<OutlinedInput label={input.label} />}
+                    renderValue={(selected) => selected}
+                    sx={{ height: "3rem" }}
+                  >
+                    {input.options?.map((option: any) => (
+                      <MenuItem
+                        key={option}
+                        value={option}
+                      >
+                        <Checkbox checked={data.indexOf(option) > -1} />
+                        <ListItemText primary={option} />
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              ))}
+            {searchInputData
+              .filter((input) => input.type.toLowerCase() !== "select")
+              .map((input) => (
+                <FormControl sx={{ m: 1, height: "3rem" }} key={input.name}>
+                  <InputLabel sx={{textTransform: 'capitalize'}} htmlFor={input.name}>
+                  {input.label}
+                  </InputLabel>
+                  <OutlinedInput
+                  sx={{ height: "3rem" }}
+                  label={input.label}
+                  onChange={updateSearchData}
+                  name={input.name}
+                  type={input.type}
+                  />
+                  {/* <TextField
+                    label={input.label}
+                    onChange={updateSearchData}
+                    name={input.name}
+                    type={input.type}
+
+                  /> */}
+                </FormControl>
+              ))}
           </Box>
         </>
       ) : null}
@@ -222,7 +265,11 @@ function FilterForm({getPrice}: {getPrice: any}) {
               {months[new Date().getMonth()]} sale
             </Typography>
             <Box sx={{ width: "100%" }}>
-              <img width="100%" src={cars[3].images[7]} alt="" />
+              <img
+                width="100%"
+                src={cars[3].images[7]}
+                alt=""
+              />
             </Box>
             <Box sx={{ mt: -3, mb: 1 }}>
               <Button

@@ -19,13 +19,13 @@ const MenuProps = {
 };
 
 function MultipleSelect({ input }: { input: any }) {
-  const [personName, setPersonName] = React.useState<string[]>([]);
+  const [data, setData] = React.useState<string[]>([]);
 
-  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
+  const handleChange = (event: SelectChangeEvent<typeof data>) => {
     const {
       target: { value },
     } = event;
-    setPersonName(
+    setData(
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
     );
@@ -40,7 +40,7 @@ function MultipleSelect({ input }: { input: any }) {
         labelId={input.name}
         id={input.name}
         multiple={input.isMultiple}
-        value={personName}
+        value={data}
         onChange={handleChange}
         input={<OutlinedInput label={input.label} />}
         renderValue={(selected) => selected.join(", ")}
@@ -49,7 +49,7 @@ function MultipleSelect({ input }: { input: any }) {
       >
         {input.options.map((option: any) => (
           <MenuItem key={option} value={option}>
-            <Checkbox checked={personName.indexOf(option) > -1} />
+            <Checkbox checked={data.indexOf(option) > -1} />
             <ListItemText primary={option} />
           </MenuItem>
         ))}
