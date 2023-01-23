@@ -192,24 +192,23 @@ function FilterForm({ getPrice }: { getPrice: any }) {
             {searchInputData
               .filter((input) => input.type.toLowerCase() !== "select")
               .map((input) => (
-                <FormControl sx={{ m: 1, height: "3rem" }} key={input.name}>
-                  <InputLabel sx={{textTransform: 'capitalize'}} htmlFor={input.name}>
-                  {input.label}
+                <FormControl
+                  sx={{ m: 1, height: "3rem" }}
+                  key={input.name}
+                >
+                  <InputLabel
+                    sx={{ textTransform: "capitalize" }}
+                    htmlFor={input.name}
+                  >
+                    {input.label}
                   </InputLabel>
                   <OutlinedInput
-                  sx={{ height: "3rem" }}
-                  label={input.label}
-                  onChange={updateSearchData}
-                  name={input.name}
-                  type={input.type}
-                  />
-                  {/* <TextField
+                    sx={{ height: "3rem" }}
                     label={input.label}
                     onChange={updateSearchData}
                     name={input.name}
                     type={input.type}
-
-                  /> */}
+                  />
                 </FormControl>
               ))}
           </Box>
