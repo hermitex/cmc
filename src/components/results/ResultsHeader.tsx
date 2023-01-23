@@ -147,14 +147,14 @@ function ResultsHeader() {
                 value={sortOption}
                 onChange={handleSortChange}
                 placeholder="Sort By"
-                input={<Input disableUnderline/>}
+                input={<OutlinedInput  />}
                 renderValue={(selected) => selected.join(", ")}
                 MenuProps={MenuProps}
                 sx={{
                   height: "3rem",
                   textTransform: "capitalize",
                   boxShadow: 0,
-                  bgcolor: "transparent",
+                  bgcolor: "#2b2d42",
                   "::placeholder": {
                     color: "#fff",
                   },
@@ -195,14 +195,14 @@ function ResultsHeader() {
                 value={viewOption}
                 onChange={handleViewChange}
                 placeholder="View"
-                input={<Input disableUnderline/>}
+                input={<OutlinedInput />}
                 renderValue={(selected) => selected.join(", ")}
                 MenuProps={MenuProps}
                 sx={{
                   height: "3rem",
                   textTransform: "capitalize",
                   boxShadow: 0,
-                  bgcolor: 'transparent',
+                  bgcolor: '#2b2d42',
                   "::placeholder": {
                     color: "#fff",
                   },
