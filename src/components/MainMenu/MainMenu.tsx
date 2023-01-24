@@ -9,9 +9,6 @@ import {
   Menu,
 } from "@mui/icons-material";
 import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
   AppBar,
   Box,
   Button,
@@ -210,7 +207,7 @@ function MainMenu() {
                   height: "2rem",
                   background:
                     "linear-gradient(90deg, rgba(43,45,66,1) 1%, rgba(252,12,35,1) 78%)",
-                  width: "10vw",
+                  width: "11vw",
                 }}
               />
               <NavLink to="/">
@@ -231,7 +228,12 @@ function MainMenu() {
                 ml: 6,
               }}
             >
-              <NavLink to="/get-vehicle">
+              <NavLink
+                to="/get-vehicle"
+                style={({ isActive }) => ({
+                  backgroundColor: isActive ? "#ed1f1f" : "initial",
+                })}
+              >
                 <Button
                   variant="contained"
                   sx={{
@@ -247,7 +249,12 @@ function MainMenu() {
                   get vehicle
                 </Button>
               </NavLink>
-              <NavLink to="/shop-parts">
+              <NavLink
+                to="/shop-parts"
+                style={({ isActive }) => ({
+                  backgroundColor: isActive ? "#ed1f1f" : "initial",
+                })}
+              >
                 <Button
                   variant="outlined"
                   sx={{
@@ -263,7 +270,12 @@ function MainMenu() {
                   Shop for parts
                 </Button>
               </NavLink>
-              <NavLink to="/after-sales">
+              <NavLink
+                to="/after-sales"
+                style={({ isActive }) => ({
+                  backgroundColor: isActive ? "#ed1f1f" : "initial",
+                })}
+              >
                 <Button
                   sx={{
                     width: { xs: "auto", lg: "15vw" },
