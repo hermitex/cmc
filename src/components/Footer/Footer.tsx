@@ -326,7 +326,7 @@ function Footer() {
             </Link>
           </Typography>
 
-          <Box sx={{ height: "10vh" }}>
+          <Box >
             {cars.slice(0, 3).map((car, i) => (
               <NavLink
                 key={car.id}
@@ -375,16 +375,21 @@ function Footer() {
         <Box
           sx={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: {
+              xs: "column",
+              md: "row",
+            },
             justifyContent: "space-between",
-            gap: 2
+            gap: 2,
+            mb: 0.2,
+            color: '#c1c1c1'
           }}
         >
           <Typography>
             Copyright ©Sepia. All Rights Reserved.{" "}
             <NavLink
               to="privacy-policy"
-              style={{}}
+              style={{color: '#c1c1c1'}}
             >
               Privacy Policy
             </NavLink>
@@ -397,14 +402,14 @@ function Footer() {
             Website Developed by{" "}
             <NavLink
               to="privacy-policy"
-              style={{}}
+              style={{color: '#c1c1c1'}}
             >
               www.sepia.co.ke
             </NavLink>
           </Typography>
         </Box>
 
-        <Box sx={{ display: "flex" }}>
+        <Box sx={{ display: "flex" , justifyContent: 'center'}}>
           <IconButton
             sx={{
               border: "1px solid #fff",
