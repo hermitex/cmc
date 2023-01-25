@@ -178,6 +178,7 @@ function CarGallery({ car }: { car: any }) {
                       ":hover": {
                         bgcolor: "#ed1f1f",
                       },
+                      color: '#fff'
                     }}
                   >
                     THE NEW MAZDA CX 30
