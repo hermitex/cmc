@@ -43,7 +43,7 @@ function MainMenu() {
             />
             <Box
               sx={{
-                height: "2rem",
+                height: { sx: "1.5rem", md: "2rem" },
                 bgcolor: "#282a3e",
                 clipPath: "polygon(4% 0, 100% 0, 95% 100%, 0 100%)",
                 px: 4,
@@ -389,7 +389,7 @@ function MenuDrawer() {
           <Box sx={{ display: "flex" }}>
             <Box
               sx={{
-                height: "2rem",
+                height: { sx: "1.5rem", md: "2rem" },
                 bgcolor: "#282a3e",
                 clipPath: "polygon(0 0, 100% 0, 93% 100%, 0 100%)",
                 px: 1.5,
@@ -402,7 +402,7 @@ function MenuDrawer() {
               <Link
                 href="tel:(+254) 125 876 423"
                 sx={{
-                  fontSize: "0.6rem",
+                  fontSize: "0.65rem",
                   display: "flex",
                   alignItems: "center",
                   gap: 0.2,
@@ -419,7 +419,7 @@ function MenuDrawer() {
               <Link
                 href="mailto:cmcmotors.com"
                 sx={{
-                  fontSize: "0.6rem",
+                  fontSize: "0.65rem",
                   display: "flex",
                   alignItems: "center",
                   gap: 0.2,
@@ -428,23 +428,23 @@ function MenuDrawer() {
                   ":hover": {
                     color: "#ea1f1f",
                   },
-
                 }}
               >
                 <Mail sx={{ color: "#ea1f1f", fontSize: "0.6rem" }} />
                 cmcmotors.com
               </Link>
             </Box>
+
             <Box
               sx={{
-                height: "2rem",
+                height: { sx: "1.5rem", md: "2rem" },
                 bgcolor: "#e11d1d",
                 clipPath: "polygon(10% 0, 100% 0, 100% 100%, 0 100%)",
                 px: 1.5,
                 display: "flex",
                 alignItems: "center",
                 gap: 1,
-                flexGrow: 1/3,
+                flexGrow: 1 / 3,
                 ml: -10,
                 justifyContent: "flex-end",
               }}
@@ -519,22 +519,25 @@ function MenuDrawer() {
               </Link>
             </Box>
           </Box>
+
           <Box
             sx={{
               display: "flex",
               justifyContent: "space-between",
+              alignItems: 'center',
               px: 2,
+              py:0.1
             }}
           >
-            <Button>
+            <Button >
               <NavLink to="/">
                 <img
                   src={cmc}
-                  width={35}
+                  width={20}
                 />
               </NavLink>
             </Button>
-            <Button onClick={toggleDrawer(anchor, true)}>
+            <Button onClick={toggleDrawer(anchor, true)} >
               <Menu sx={{ color: "#e91f1f" }} />
             </Button>
           </Box>
