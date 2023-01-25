@@ -164,7 +164,7 @@ function CarGallery({ car }: { car: any }) {
                   width: "40vw",
                 }}
               >
-                <Typography>FIND YOUR MATCH</Typography>
+                <Typography sx={{color: "#fff"}}>FIND YOUR MATCH</Typography>
                 <Box>
                   <Button
                     variant="contained"
