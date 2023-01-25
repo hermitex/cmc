@@ -5,18 +5,20 @@ import {
   LinkedIn,
   Mail,
   Twitter,
-  ExpandMore,
   Menu,
 } from "@mui/icons-material";
 import {
   AppBar,
   Box,
   Button,
-  Container,
   Link,
-  Typography,
 } from "@mui/material";
 import React from "react";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
 import CountrySelect from "./CountrySelect";
 import cmc from "./cmc.png";
 import { NavLink } from "react-router-dom";
@@ -34,10 +36,10 @@ function MainMenu() {
             <Box
               sx={{
                 height: "2rem",
-                flexGrow: 2,
+                flexGrow:{md: 3.4, lg: 2},
                 bgcolor: "#fff",
                 clipPath: "polygon(0 0, 100% 0, 96% 100%, 0% 100%)",
-                mr: -5,
+                mr: {md: 0, lg: -5},
                 px: 4,
               }}
             />
@@ -220,8 +222,9 @@ function MainMenu() {
                 width: "100%",
                 display: "flex",
                 alignItems: "flex-end",
+                justifyContent: "flex-end",
                 gap: 3,
-                ml: 6,
+                pr: 2
               }}
             >
               <NavLink
@@ -297,15 +300,6 @@ function MainMenu() {
   );
 }
 
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 
 type Anchor = "left";
 
@@ -533,7 +527,7 @@ function MenuDrawer() {
               <NavLink to="/">
                 <img
                   src={cmc}
-                  width={20}
+                  width={25}
                 />
               </NavLink>
             </Button>

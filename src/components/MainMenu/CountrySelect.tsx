@@ -50,8 +50,8 @@ export default function CountrySelect() {
           sx={{
             bgcolor: "#fff",
             "& .MuiInputBase-root": {
-              height: 45,
-              // mb: 0.5
+              height: 50,
+              // mb: 1
             },
           }}
           {...params}
