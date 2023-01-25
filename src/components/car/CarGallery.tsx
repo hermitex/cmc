@@ -30,7 +30,7 @@ function CarGallery({ car }: { car: any }) {
     display: "inline-block",
     margin: "0 8px",
     borderRadius: "100%",
-    cursor: 'pointer'
+    cursor: "pointer",
   };
 
   const renderArrowPrev = (
@@ -139,7 +139,7 @@ function CarGallery({ car }: { car: any }) {
             <Box
               sx={{
                 position: "absolute",
-                display:  "flex" ,
+                display: "flex",
                 justifyContent: "center",
                 alignContent: "center",
 
@@ -164,8 +164,8 @@ function CarGallery({ car }: { car: any }) {
                   width: "40vw",
                 }}
               >
-                <Typography sx={{color: "#fff"}}>FIND YOUR MATCH</Typography>
-                <Box>
+                <Typography sx={{ color: "#fff" }}>FIND YOUR MATCH</Typography>
+                <Box sx={{ color: "#fff" }}>
                   <Button
                     variant="contained"
                     disableElevation
@@ -178,7 +178,6 @@ function CarGallery({ car }: { car: any }) {
                       ":hover": {
                         bgcolor: "#ed1f1f",
                       },
-                      color: '#fff'
                     }}
                   >
                     THE NEW MAZDA CX 30
@@ -219,7 +218,7 @@ function CarGallery({ car }: { car: any }) {
                   left: "5rem",
                   alignItems: "flex-start",
                   textAlign: "left",
-                  fontSize: '0.8rem'
+                  fontSize: "0.8rem",
                 }}
               >
                 <Typography>THE NEW MAZDA CX 30</Typography>
