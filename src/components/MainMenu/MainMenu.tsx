@@ -38,7 +38,6 @@ function MainMenu() {
                 bgcolor: "#fff",
                 clipPath: "polygon(0 0, 100% 0, 96% 100%, 0% 100%)",
                 mr: -5,
-                //   py: 0.5,
                 px: 4,
               }}
             />
@@ -47,14 +46,12 @@ function MainMenu() {
                 height: "2rem",
                 bgcolor: "#282a3e",
                 clipPath: "polygon(4% 0, 100% 0, 95% 100%, 0 100%)",
-                //   py: 1.5,
                 px: 4,
                 pr: 8,
                 display: "flex",
                 alignItems: "center",
                 gap: 2,
                 flexGrow: 1.5,
-                // justifyContent: "flex-end",
               }}
             >
               <Link
@@ -88,7 +85,6 @@ function MainMenu() {
                   },
                 }}
               >
-                {" "}
                 <Mail sx={{ color: "#ea1f1f", fontSize: "1rem" }} />{" "}
                 cmcmotors.com
               </Link>
@@ -390,12 +386,144 @@ function MenuDrawer() {
     <div>
       {(["left"] as const).map((anchor) => (
         <React.Fragment key={anchor}>
+          <Box sx={{ display: "flex" }}>
+            <Box
+              sx={{
+                height: "2rem",
+                bgcolor: "#282a3e",
+                clipPath: "polygon(0 0, 100% 0, 93% 100%, 0 100%)",
+                px: 1.5,
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                flexGrow: 1,
+              }}
+            >
+              <Link
+                href="tel:(+254) 125 876 423"
+                sx={{
+                  fontSize: "0.6rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.2,
+                  textDecoration: "none",
+                  color: "#fff",
+                  ":hover": {
+                    color: "#ea1f1f",
+                  },
+                }}
+              >
+                <Call sx={{ color: "#ea1f1f", fontSize: "0.7rem" }} />
+                (+254) 125 876 423
+              </Link>
+              <Link
+                href="mailto:cmcmotors.com"
+                sx={{
+                  fontSize: "0.6rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.2,
+                  textDecoration: "none",
+                  color: "#fff",
+                  ":hover": {
+                    color: "#ea1f1f",
+                  },
+
+                }}
+              >
+                <Mail sx={{ color: "#ea1f1f", fontSize: "0.6rem" }} />
+                cmcmotors.com
+              </Link>
+            </Box>
+            <Box
+              sx={{
+                height: "2rem",
+                bgcolor: "#e11d1d",
+                clipPath: "polygon(10% 0, 100% 0, 100% 100%, 0 100%)",
+                px: 1.5,
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                flexGrow: 1/3,
+                ml: -10,
+                justifyContent: "flex-end",
+              }}
+            >
+              <Link
+                href="https://facebook.com"
+                sx={{
+                  fontSize: "0.8rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.2,
+                  textDecoration: "none",
+                  color: "#fff",
+                  ":hover": {
+                    color: "#ea1f1f",
+                  },
+                }}
+              >
+                <Facebook sx={{ color: "#fff", fontSize: "0.9rem" }} />
+              </Link>
+              <Link
+                href="https://twitter.com"
+                sx={{
+                  fontSize: "0.75rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.2,
+                  textDecoration: "none",
+                  color: "#fff",
+                  ":hover": {
+                    color: "#ea1f1f",
+                  },
+                }}
+              >
+                {" "}
+                <Twitter sx={{ color: "#fff", fontSize: "0.9rem" }} />
+              </Link>
+
+              <Link
+                href="https://google.com"
+                sx={{
+                  fontSize: "0.8rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.2,
+                  textDecoration: "none",
+                  color: "#fff",
+                  ":hover": {
+                    color: "#ea1f1f",
+                  },
+                }}
+              >
+                {" "}
+                <Google sx={{ color: "#fff", fontSize: "0.9rem" }} />
+              </Link>
+
+              <Link
+                href="https://linkedin.com"
+                sx={{
+                  fontSize: "0.75rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.2,
+                  textDecoration: "none",
+                  color: "#fff",
+                  ":hover": {
+                    color: "#ea1f1f",
+                  },
+                }}
+              >
+                <LinkedIn sx={{ color: "#fff", fontSize: "0.9rem" }} />
+              </Link>
+            </Box>
+          </Box>
           <Box
             sx={{
               display: "flex",
               justifyContent: "space-between",
               px: 2,
-              py: 1,
             }}
           >
             <Button>
